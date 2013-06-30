@@ -1,46 +1,38 @@
-#include "NotepadPlus.h"
-#include "Logger.h"
+#include "precompiled.h"
 
-#include <bb/cascades/AbstractPane>
-#include <bb/cascades/AbstractTextControl>
-#include <bb/cascades/Application>
-#include <bb/cascades/QmlDocument>
+#include "NotepadPlus.h"
+#include "IOUtils.h"
+#include "Logger.h"
 
 namespace notepad {
 
 using namespace bb::cascades;
+using namespace canadainc;
 
 NotepadPlus::NotepadPlus(bb::cascades::Application *app) : QObject(app)
 {
-	connect( app, SIGNAL( aboutToQuit() ), this, SLOT( onAboutToQuit() ) );
+	qmlRegisterType<bb::cascades::pickers::FilePicker>("bb.cascades.pickers", 1, 0, "FilePicker");
+	qmlRegisterUncreatableType<bb::cascades::pickers::FileType>("bb.cascades.pickers", 1, 0, "FileType", "Can't instantiate");
+	qmlRegisterUncreatableType<bb::cascades::pickers::FilePickerMode>("bb.cascades.pickers", 1, 0, "FilePickerMode", "Can't instantiate");
 
     QmlDocument *qml = QmlDocument::create("asset:///main.qml").parent(this);
+    qml->setContextProperty("app", this);
+    qml->setContextProperty("persist", &m_persistance);
 
     AbstractPane* root = qml->createRootObject<AbstractPane>();
     app->setScene(root);
-
-    m_textArea = root->findChild<AbstractTextControl*>("textArea");
-
-    QString data = m_settings.value("data").toString();
-
-    LOGGER("Fetched" << data);
-
-    m_textArea->setText(data);
 }
 
 
-void NotepadPlus::create(bb::cascades::Application *app) {
-	new NotepadPlus(app);
-}
-
-
-void NotepadPlus::onAboutToQuit()
+bool NotepadPlus::save(QString const& fileName, QString contents)
 {
-	QString toSave = m_textArea->text();
+	LOGGER("Save" << fileName);
+	return IOUtils::writeTextFile(fileName, contents);
+}
 
-	LOGGER("Saving: " << toSave);
 
-	m_settings.setValue("data", toSave);
+void NotepadPlus::create(bb::cascades::Application* app) {
+	new NotepadPlus(app);
 }
 
 

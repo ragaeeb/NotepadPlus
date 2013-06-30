@@ -1,2 +1,5 @@
-// This file is used to store precompiled headers.
-// It is intentionally left blank. It is up to you to decide which headers should be included here. 
+#include <bb/cascades/AbstractPane>
+#include <bb/cascades/Application>
+#include <bb/cascades/QmlDocument>
+
+#include <bb/cascades/pickers/FilePicker>

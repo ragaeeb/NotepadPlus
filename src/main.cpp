@@ -1,4 +1,4 @@
-#include <bb/cascades/Application>
+#include "precompiled.h"
 
 #include "NotepadPlus.h"
 #include "Logger.h"
@@ -10,6 +10,7 @@ using namespace notepad;
 namespace {
 
 void redirectedMessageOutput(QtMsgType type, const char *msg) {
+	Q_UNUSED(type);
 	fprintf(stderr, "%s\n", msg);
 }
 
