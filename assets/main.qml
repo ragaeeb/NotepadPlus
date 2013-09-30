@@ -131,11 +131,16 @@ NavigationPane
             
             onCreationCompleted: {
                 Application.aboutToQuit.connect( function onAboutToQuit() {
-                    persist.saveValueFor("data", textArea.text);
+                    if ( persist.getValueFor("loadCache") == 1 ) {
+                        persist.saveValueFor("data", textArea.text);
+                    }
                 });
                 
                 Application.sceneChanged.connect(requestFocus);
-                text = persist.getValueFor("data");
+                
+                if ( persist.getValueFor("loadCache") == 1 ) {
+                    text = persist.getValueFor("data");
+                }
             }
             
             onFocusedChanged: {

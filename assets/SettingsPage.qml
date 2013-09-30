@@ -15,8 +15,15 @@ Page
         rightPadding: 20
         bottomPadding: 20
         
+        SettingPair
+        {
+            title: qsTr("Load Cache");
+            key: "loadCache"
+        }
+        
         PersistDropDown
         {
+            topMargin: 20
             key: "theme"
             title: qsTr("Visual Style") + Retranslate.onLanguageChanged
             
