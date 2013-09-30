@@ -1,6 +1,7 @@
 import bb 1.0
 import bb.cascades 1.0
 import bb.cascades.pickers 1.0
+import bb.system 1.0
 
 NavigationPane
 {
@@ -98,9 +99,25 @@ NavigationPane
                 imageSource: "images/ic_delete.png"
                 
                 onTriggered: {
-                    textArea.resetText();
-                    textArea.requestFocus();
+                    prompt.show()
                 }
+                
+                attachedObjects: [
+                    SystemDialog {
+                        id: prompt
+                        title: qsTr("Confirm") + Retranslate.onLanguageChanged
+                        body: qsTr("Are you sure you want to clear the text?") + Retranslate.onLanguageChanged
+                        confirmButton.label: qsTr("Yes") + Retranslate.onLanguageChanged
+                        cancelButton.label: qsTr("No") + Retranslate.onLanguageChanged
+
+                        onFinished: {
+                            if (result == SystemUiResult.ConfirmButtonSelection) {
+                                textArea.resetText();
+                                textArea.requestFocus();
+                            }
+                        }
+                    }
+                ]
             }
         ]
         
