@@ -1,3 +1,4 @@
+import bb 1.0
 import bb.cascades 1.0
 import bb.cascades.pickers 1.0
 
@@ -10,33 +11,30 @@ NavigationPane
             id: definition
         }
     ]
+    
+    Menu.definition: CanadaIncMenu {
+        projectName: "message-templates"
+    }
 
-    Menu.definition: MenuDefinition
+    onPopTransitionEnded: {
+        page.destroy();
+    }
+    
+    Page
     {
-        helpAction: HelpActionItem
-        {
-            property Page helpPage
-            
-            onTriggered:
-            {
-                if (!helpPage) {
-                    definition.source = "HelpPage.qml"
-                    helpPage = definition.createObject();
-                }
-
-                navigationPane.push(helpPage);
-            }
-        }
+        id: rootPage
+        actionBarVisibility: ChromeVisibility.Hidden
         
         actions: [
             ActionItem {
-                title: qsTr("Save") + Retranslate.onLanguageChanged
+                title: qsTr("Save As") + Retranslate.onLanguageChanged
                 imageSource: "images/ic_save.png"
+                ActionBar.placement: ActionBarPlacement.OnBar
                 
                 onTriggered: {
                     filePicker.open();
                 }
-
+                
                 attachedObjects: [
                     FilePicker {
                         id: filePicker
@@ -46,11 +44,11 @@ NavigationPane
                         filter: [ "*.txt" ]
                         defaultSaveFileNames: ["New.txt"]
                         allowOverwrite: true
-
+                        
                         onFileSelected: {
                             var result = selectedFiles[0]
                             var written = app.save(result, textArea.text);
-
+                            
                             if (written) {
                                 persist.showToast( qsTr("Successfully written file: %1").arg(result) );
                             } else {
@@ -61,7 +59,7 @@ NavigationPane
                 ]
             },
             
-            ActionItem {
+            DeleteActionItem {
                 id: clearAction
                 title: qsTr("Clear") + Retranslate.onLanguageChanged
                 imageSource: "images/ic_delete.png"
@@ -72,14 +70,7 @@ NavigationPane
                 }
             }
         ]
-    }
-
-    onPopTransitionEnded: {
-        page.destroy();
-    }
-    
-    Page
-    {
+        
         TextArea {
             id: textArea
 
@@ -94,9 +85,25 @@ NavigationPane
                 text = persist.getValueFor("data");
             }
             
+            onFocusedChanged: {
+                if (focused) {
+                    rootPage.actionBarVisibility = ChromeVisibility.Hidden;
+                }
+            }
+            
             function onAboutToQuit() {
                 persist.saveValueFor("data", text);
             }
+            
+            attachedObjects: [
+                UIToolkitSupport {
+                    id: uis
+                    
+                    onSwipedDown: {
+                        rootPage.actionBarVisibility = ChromeVisibility.Overlay;
+                    }
+                }
+            ]
         }
     }
 }

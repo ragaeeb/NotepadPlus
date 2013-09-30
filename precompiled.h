@@ -3,3 +3,5 @@
 #include <bb/cascades/QmlDocument>
 
 #include <bb/cascades/pickers/FilePicker>
+
+#include <bb/UIToolkitSupport>

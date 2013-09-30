@@ -2,7 +2,7 @@ APP_NAME = NotepadPlus
 
 INCLUDEPATH += ../src ../../canadainc/src/
 CONFIG += qt warn_on cascades10
-LIBS   += -lbbdata -lbbsystem -lbbcascadespickers
+LIBS   += -lbbdata -lbbsystem -lbbcascadespickers -lbb
 
 CONFIG(release, debug|release) {
     DESTDIR = o.le-v7
