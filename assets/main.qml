@@ -27,6 +27,25 @@ NavigationPane
         
         actions: [
             ActionItem {
+                id: saveAction
+                title: qsTr("Save") + Retranslate.onLanguageChanged
+                imageSource: "images/ic_save_existing.png"
+                ActionBar.placement: ActionBarPlacement.OnBar
+                enabled: filePicker.lastPath.length > 0;
+                
+                onCreationCompleted: {
+                    filePicker.lastPathChanged.connect( function() {
+                        saveAction.enabled = filePicker.lastPath.length > 0;
+                    });
+                }
+                
+                onTriggered: {
+                    filePicker.fileSelected([filePicker.lastPath]);
+                }
+            },
+            
+            ActionItem {
+                id: saveAsAction
                 title: qsTr("Save As") + Retranslate.onLanguageChanged
                 imageSource: "images/ic_save.png"
                 ActionBar.placement: ActionBarPlacement.OnBar
@@ -38,6 +57,7 @@ NavigationPane
                 attachedObjects: [
                     FilePicker {
                         id: filePicker
+                        property string lastPath
                         mode: FilePickerMode.Saver
                         title: qsTr("Specify File Name") + Retranslate.onLanguageChanged
                         type: FileType.Document
@@ -46,13 +66,13 @@ NavigationPane
                         allowOverwrite: true
                         
                         onFileSelected: {
-                            var result = selectedFiles[0]
-                            var written = app.save(result, textArea.text);
+                            lastPath = selectedFiles[0];
+                            var written = app.save(lastPath, textArea.text);
                             
                             if (written) {
-                                persist.showToast( qsTr("Successfully written file: %1").arg(result) );
+                                persist.showToast( qsTr("Successfully written file: %1").arg(lastPath) );
                             } else {
-                                persist.showToast( qsTr("Could not write file: %1\n\nDid you make sure you gave the app the Shared Files permission? This permission is needed for the app to access your shared folder to write the file.\n\nIf you disabled it by mistake, go to BB10 Settings -> Security & Privacy -> Application Permissions -> Notepad Plus and enable it.").arg(result), qsTr("OK") );
+                                persist.showToast( qsTr("Could not write file: %1\n\nDid you make sure you gave the app the Shared Files permission? This permission is needed for the app to access your shared folder to write the file.\n\nIf you disabled it by mistake, go to BB10 Settings -> Security & Privacy -> Application Permissions -> Notepad Plus and enable it.").arg(lastPath), qsTr("OK") );
                             }
                         }
                     }
@@ -80,7 +100,10 @@ NavigationPane
             hintText: qsTr("Start typing here...") + Retranslate.onLanguageChanged
             
             onCreationCompleted: {
-                Application.aboutToQuit.connect(onAboutToQuit);
+                Application.aboutToQuit.connect( function onAboutToQuit() {
+                    persist.saveValueFor("data", textArea.text);
+                });
+                
                 Application.sceneChanged.connect(requestFocus);
                 text = persist.getValueFor("data");
             }
@@ -89,10 +112,6 @@ NavigationPane
                 if (focused) {
                     rootPage.actionBarVisibility = ChromeVisibility.Hidden;
                 }
-            }
-            
-            function onAboutToQuit() {
-                persist.saveValueFor("data", text);
             }
             
             attachedObjects: [
