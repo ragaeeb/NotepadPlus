@@ -84,6 +84,17 @@
         <image>icon.png</image>
     </icon>
 
+   <invoke-target id="com.canadainc.NotePadPlus.open">
+      <invoke-target-type>application</invoke-target-type>
+	  <filter>
+	    <action>bb.action.VIEW</action>
+	    <action>bb.action.OPEN</action>
+	    <mime-type>*</mime-type>
+	    <property var="uris" value="file://"/>
+	    <property var="exts" value="htm,html,nfo,rtf,xhtml,xml,wri,txt"/>
+	  </filter>
+   </invoke-target>
+
     <asset path="icon.png">icon.png</asset>
     <asset path="assets">assets</asset>
     <asset path="../canadainc/assets/BugReportPage.qml">assets/BugReportPage.qml</asset>
@@ -98,6 +109,7 @@
     <!-- Request permission to execute native code.  Required for native applications. -->
     <permission system="true">run_native</permission>
     <permission>access_shared</permission>
+	<permission>multi_app_instance</permission>
     <env var="LD_LIBRARY_PATH" value="app/native/lib:/usr/lib/qt4/lib"/>
 	<env var="CASCADES_THEME" value="bright"/>
 </qnx>

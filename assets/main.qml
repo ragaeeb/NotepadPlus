@@ -5,6 +5,8 @@ import bb.cascades.pickers 1.0
 NavigationPane
 {
     id: navigationPane
+    property alias lastSavedFile: filePicker.lastPath
+    property alias body: textArea.text
 
     attachedObjects: [
         ComponentDefinition {
@@ -83,6 +85,7 @@ NavigationPane
                 id: copyAllAction
                 title: qsTr("Copy") + Retranslate.onLanguageChanged
                 imageSource: "images/ic_copy_all.png"
+                ActionBar.placement: ActionBarPlacement.OnBar
                 
                 onTriggered: {
                     persist.copyToClipboard(textArea.text);

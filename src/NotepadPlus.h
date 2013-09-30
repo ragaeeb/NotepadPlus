@@ -1,6 +1,8 @@
 #ifndef NOTEPADPLUS_H_
 #define NOTEPADPLUS_H_
 
+#include <bb/system/InvokeManager>
+
 #include "Persistance.h"
 
 namespace bb {
@@ -19,11 +21,14 @@ class NotepadPlus : public QObject
     Q_OBJECT
 
     Persistance m_persistance;
+    bb::system::InvokeManager m_invokeManager;
 
     NotepadPlus(Application* app);
+    QObject* loadRoot(QString const& qml, bool invoked=false);
 
 private slots:
 	void init();
+	void invoked(bb::system::InvokeRequest const& request);
 
 signals:
 	void initialize();
