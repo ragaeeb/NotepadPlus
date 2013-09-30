@@ -1,6 +1,7 @@
 #include "precompiled.h"
 
 #include "NotepadPlus.h"
+#include "InvocationUtils.h"
 #include "IOUtils.h"
 #include "Logger.h"
 
@@ -22,6 +23,15 @@ NotepadPlus::NotepadPlus(bb::cascades::Application *app) : QObject(app)
 
     AbstractPane* root = qml->createRootObject<AbstractPane>();
     app->setScene(root);
+
+	connect( this, SIGNAL( initialize() ), this, SLOT( init() ), Qt::QueuedConnection ); // async startup
+	emit initialize();
+}
+
+
+void NotepadPlus::init()
+{
+    InvocationUtils::validateSharedFolderAccess( tr("Warning: It seems like the app does not have access to your Shared Folder. This permission is needed for the app to access the file system so that it can allow you to save your files and open them. If you leave this permission off, some features may not work properly.") );
 }
 
 

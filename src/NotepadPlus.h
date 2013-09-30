@@ -22,6 +22,12 @@ class NotepadPlus : public QObject
 
     NotepadPlus(Application* app);
 
+private slots:
+	void init();
+
+signals:
+	void initialize();
+
 public:
     static void create(Application* app);
     virtual ~NotepadPlus() {}
