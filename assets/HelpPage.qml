@@ -12,6 +12,10 @@ Page
             id: packageInfo
         }
     ]
+    
+    titleBar: TitleBar {
+        title: qsTr("Help") + Retranslate.onLanguageChanged
+    }
 
     Container
     {

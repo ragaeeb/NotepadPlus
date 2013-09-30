@@ -4,7 +4,12 @@
 <context>
     <name>HelpPage</name>
     <message>
-        <location filename="../assets/HelpPage.qml" line="34"/>
+        <location filename="../assets/HelpPage.qml" line="17"/>
+        <source>Help</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../assets/HelpPage.qml" line="38"/>
         <source>(c) 2013 %1. All Rights Reserved.
 %2 %3
 
@@ -14,6 +19,44 @@ support@canadainc.org
 A simple lightweight notepad app for BB10. The idea was to make the startup time almost instant while maximizing usefulness.
 
 Note that this app requires the &apos;Shared Files&apos; permission to be able to save the document into your chosen folder.</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>SettingsPage</name>
+    <message>
+        <location filename="../assets/SettingsPage.qml" line="6"/>
+        <source>Settings</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../assets/SettingsPage.qml" line="21"/>
+        <source>Visual Style</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../assets/SettingsPage.qml" line="24"/>
+        <source>Bright</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../assets/SettingsPage.qml" line="25"/>
+        <source>Black text on a white background.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../assets/SettingsPage.qml" line="31"/>
+        <source>Dark</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../assets/SettingsPage.qml" line="32"/>
+        <source>White text on a black background.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../assets/SettingsPage.qml" line="43"/>
+        <source>%1 theme applied, please restart the app.</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -72,7 +115,7 @@ If you disabled it by mistake, go to BB10 Settings -&gt; Security &amp; Privacy 
 <context>
     <name>notepad::NotepadPlus</name>
     <message>
-        <location filename="../src/NotepadPlus.cpp" line="69"/>
+        <location filename="../src/NotepadPlus.cpp" line="94"/>
         <source>Warning: It seems like the app does not have access to your Shared Folder. This permission is needed for the app to access the file system so that it can allow you to save your files and open them. If you leave this permission off, some features may not work properly.</source>
         <translation type="unfinished"></translation>
     </message>

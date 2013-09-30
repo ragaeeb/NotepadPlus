@@ -12,6 +12,8 @@ using namespace canadainc;
 
 NotepadPlus::NotepadPlus(bb::cascades::Application *app) : QObject(app)
 {
+	INIT_SETTING("theme", "bright");
+
 	connect( &m_invokeManager, SIGNAL( invoked(bb::system::InvokeRequest const&) ), this, SLOT( invoked(bb::system::InvokeRequest const&) ) );
 
 	switch ( m_invokeManager.startupMode() )
@@ -24,6 +26,30 @@ NotepadPlus::NotepadPlus(bb::cascades::Application *app) : QObject(app)
 		connect( &m_invokeManager, SIGNAL( invoked(bb::system::InvokeRequest const&) ), this, SLOT( invoked(bb::system::InvokeRequest const&) ) );
 		break;
 	}
+}
+
+
+bool NotepadPlus::changeTheme(QString const& theme)
+{
+	QString body = IOUtils::readTextFile("app/META-INF/MANIFEST.MF");
+
+	if ( body.isNull() ) {
+		return false;
+	}
+
+	if (theme == "dark") {
+		body = body.replace("CASCADES_THEME=bright","CASCADES_THEME=dark");
+		QFile::rename("app/native/splash_n.png", "app/native/splash_n_bright.png");
+		QFile::rename("app/native/splash_n_dark.png", "app/native/splash_n.png");
+	} else if (theme == "bright") {
+		body = body.replace("CASCADES_THEME=dark","CASCADES_THEME=bright");
+		QFile::rename("app/native/splash_n.png", "app/native/splash_n_dark.png");
+		QFile::rename("app/native/splash_n_bright.png", "app/native/splash_n.png");
+	}
+
+	IOUtils::writeTextFile("app/META-INF/MANIFEST.MF", body, true, false);
+
+	return true;
 }
 
 

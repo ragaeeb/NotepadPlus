@@ -97,8 +97,10 @@
 
     <asset path="icon.png">icon.png</asset>
     <asset path="assets">assets</asset>
+	<asset path="splash_n_dark.png">splash_n_dark.png</asset>
     <asset path="../canadainc/assets/BugReportPage.qml">assets/BugReportPage.qml</asset>
     <asset path="../canadainc/assets/CanadaIncMenu.qml">assets/CanadaIncMenu.qml</asset>
+    <asset path="../canadainc/assets/PersistDropDown.qml">assets/PersistDropDown.qml</asset>
     
     <!-- Locale support -->
     <asset path="translations" dest="qm">
