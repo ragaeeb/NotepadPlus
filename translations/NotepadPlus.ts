@@ -55,11 +55,16 @@ If you disabled it by mistake, go to BB10 Settings -&gt; Security &amp; Privacy 
     </message>
     <message>
         <location filename="../assets/main.qml" line="84"/>
+        <source>Copy</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../assets/main.qml" line="94"/>
         <source>Clear</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../assets/main.qml" line="100"/>
+        <location filename="../assets/main.qml" line="110"/>
         <source>Start typing here...</source>
         <translation type="unfinished"></translation>
     </message>

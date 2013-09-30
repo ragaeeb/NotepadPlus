@@ -79,6 +79,16 @@ NavigationPane
                 ]
             },
             
+            ActionItem {
+                id: copyAllAction
+                title: qsTr("Copy") + Retranslate.onLanguageChanged
+                imageSource: "images/ic_copy_all.png"
+                
+                onTriggered: {
+                    persist.copyToClipboard(textArea.text);
+                }
+            },
+            
             DeleteActionItem {
                 id: clearAction
                 title: qsTr("Clear") + Retranslate.onLanguageChanged
