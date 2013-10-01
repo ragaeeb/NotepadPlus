@@ -15,16 +15,19 @@ NotepadPlus::NotepadPlus(bb::cascades::Application *app) : QObject(app)
 	INIT_SETTING("theme", "bright");
 	INIT_SETTING("loadCache", 1);
 
-	connect( &m_invokeManager, SIGNAL( invoked(bb::system::InvokeRequest const&) ), this, SLOT( invoked(bb::system::InvokeRequest const&) ) );
+	loadRoot("main.qml");
+
+	LOGGER( "Constructor" << m_invokeManager.startupMode() );
 
 	switch ( m_invokeManager.startupMode() )
 	{
-	case ApplicationStartupMode::LaunchApplication:
-		loadRoot("main.qml");
+	case ApplicationStartupMode::InvokeApplication:
+	case ApplicationStartupMode::InvokeCard:
+		LOGGER("INVOKED!!");
+		connect( &m_invokeManager, SIGNAL( invoked(bb::system::InvokeRequest const&) ), this, SLOT( invoked(bb::system::InvokeRequest const&) ) );
 		break;
 
 	default:
-		connect( &m_invokeManager, SIGNAL( invoked(bb::system::InvokeRequest const&) ), this, SLOT( invoked(bb::system::InvokeRequest const&) ) );
 		break;
 	}
 }
@@ -59,8 +62,16 @@ void NotepadPlus::invoked(bb::system::InvokeRequest const& request)
 	QString uri = request.uri().toLocalFile();
 	LOGGER("========= INVOKED WITH" << uri );
 
-	QObject* root = loadRoot("main.qml", true);
+	open(uri);
+}
+
+
+void NotepadPlus::open(QString const& uri)
+{
+	QObject* root = Application::instance()->scene();
 	QString body = IOUtils::readTextFile(uri);
+
+	LOGGER("Setting invoke data" << uri << body);
 
 	root->setProperty("lastSavedFile", uri);
 	root->setProperty("body", body);

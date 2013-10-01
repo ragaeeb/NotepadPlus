@@ -78,6 +78,10 @@
        <platformArchitecture>armle-v7</platformArchitecture>
        <asset path="arm/o.le-v7/NotepadPlus.so" entry="true" type="Qnx/Elf">NotepadPlus.so</asset>
     </configuration>
+    <configuration name="Simulator-Debug">
+       <platformArchitecture>x86</platformArchitecture>
+       <asset path="x86/o-g/NotepadPlus" entry="true" type="Qnx/Elf">NotepadPlus</asset>
+    </configuration>
     
     <!--  The icon for the application -->
     <icon>

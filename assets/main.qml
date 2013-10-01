@@ -83,6 +83,29 @@ NavigationPane
             },
             
             ActionItem {
+                id: openAction
+                title: qsTr("Open") + Retranslate.onLanguageChanged
+                imageSource: "images/ic_open.png"
+                
+                onTriggered: {
+                    fileOpener.open();
+                }
+                
+                attachedObjects: [
+                    FilePicker {
+                        id: fileOpener
+                        mode: FilePickerMode.Picker
+                        title: qsTr("Choose File") + Retranslate.onLanguageChanged
+                        type: FileType.Other
+                        
+                        onFileSelected: {
+                            app.open(selectedFiles[0]);
+                        }
+                    }
+                ]
+            },
+            
+            ActionItem {
                 id: copyAllAction
                 title: qsTr("Copy") + Retranslate.onLanguageChanged
                 imageSource: "images/ic_copy_all.png"
