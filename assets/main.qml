@@ -16,7 +16,7 @@ NavigationPane
     ]
     
     Menu.definition: CanadaIncMenu {
-        projectName: "message-templates"
+        projectName: "notepad-plus"
     }
 
     onPopTransitionEnded: {
