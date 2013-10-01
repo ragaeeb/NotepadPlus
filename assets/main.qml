@@ -36,6 +36,12 @@ NavigationPane
                 ActionBar.placement: ActionBarPlacement.OnBar
                 enabled: filePicker.lastPath.length > 0;
                 
+                shortcuts: [
+                    SystemShortcut {
+                        type: SystemShortcuts.Search
+                    }
+                ]
+                
                 onCreationCompleted: {
                     filePicker.lastPathChanged.connect( function() {
                         saveAction.enabled = filePicker.lastPath.length > 0;
@@ -52,6 +58,12 @@ NavigationPane
                 title: qsTr("Save As") + Retranslate.onLanguageChanged
                 imageSource: "images/ic_save.png"
                 ActionBar.placement: ActionBarPlacement.OnBar
+                
+                shortcuts: [
+                    Shortcut {
+                        key: qsTr("A") + Retranslate.onLanguageChanged
+                    }
+                ]
                 
                 onTriggered: {
                     filePicker.open();
@@ -91,6 +103,12 @@ NavigationPane
                     fileOpener.open();
                 }
                 
+                shortcuts: [
+                    Shortcut {
+                        key: qsTr("O") + Retranslate.onLanguageChanged
+                    }
+                ]
+                
                 attachedObjects: [
                     FilePicker {
                         id: fileOpener
@@ -110,6 +128,12 @@ NavigationPane
                 title: qsTr("Copy") + Retranslate.onLanguageChanged
                 imageSource: "images/ic_copy_all.png"
                 ActionBar.placement: ActionBarPlacement.OnBar
+                
+                shortcuts: [
+                    SystemShortcut {
+                        type: SystemShortcuts.CreateNew
+                    }
+                ]
                 
                 onTriggered: {
                     persist.copyToClipboard(textArea.text);

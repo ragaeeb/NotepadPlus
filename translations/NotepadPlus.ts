@@ -73,22 +73,27 @@ Note that this app requires the &apos;Shared Files&apos; permission to be able t
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../assets/main.qml" line="52"/>
+        <location filename="../assets/main.qml" line="58"/>
         <source>Save As</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../assets/main.qml" line="65"/>
+        <location filename="../assets/main.qml" line="64"/>
+        <source>A</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../assets/main.qml" line="77"/>
         <source>Specify File Name</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../assets/main.qml" line="76"/>
+        <location filename="../assets/main.qml" line="88"/>
         <source>Successfully written file: %1</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../assets/main.qml" line="78"/>
+        <location filename="../assets/main.qml" line="90"/>
         <source>Could not write file: %1
 
 Did you make sure you gave the app the Shared Files permission? This permission is needed for the app to access your shared folder to write the file.
@@ -97,52 +102,57 @@ If you disabled it by mistake, go to BB10 Settings -&gt; Security &amp; Privacy 
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../assets/main.qml" line="78"/>
+        <location filename="../assets/main.qml" line="90"/>
         <source>OK</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../assets/main.qml" line="87"/>
+        <location filename="../assets/main.qml" line="99"/>
         <source>Open</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../assets/main.qml" line="98"/>
+        <location filename="../assets/main.qml" line="108"/>
+        <source>O</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../assets/main.qml" line="116"/>
         <source>Choose File</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../assets/main.qml" line="110"/>
+        <location filename="../assets/main.qml" line="128"/>
         <source>Copy</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../assets/main.qml" line="121"/>
+        <location filename="../assets/main.qml" line="145"/>
         <source>Clear</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../assets/main.qml" line="131"/>
+        <location filename="../assets/main.qml" line="155"/>
         <source>Confirm</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../assets/main.qml" line="132"/>
+        <location filename="../assets/main.qml" line="156"/>
         <source>Are you sure you want to clear the text?</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../assets/main.qml" line="133"/>
+        <location filename="../assets/main.qml" line="157"/>
         <source>Yes</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../assets/main.qml" line="134"/>
+        <location filename="../assets/main.qml" line="158"/>
         <source>No</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../assets/main.qml" line="153"/>
+        <location filename="../assets/main.qml" line="177"/>
         <source>Start typing here...</source>
         <translation type="unfinished"></translation>
     </message>
