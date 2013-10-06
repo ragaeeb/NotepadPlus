@@ -10,7 +10,9 @@
     </message>
     <message>
         <location filename="../assets/HelpPage.qml" line="38"/>
-        <source>(c) 2013 %1. All Rights Reserved.
+        <source>
+
+(c) 2013 %1. All Rights Reserved.
 %2 %3
 
 Please report all bugs to:
@@ -60,7 +62,7 @@ Note that this app requires the &apos;Shared Files&apos; permission to be able t
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../assets/SettingsPage.qml" line="50"/>
+        <location filename="../assets/SettingsPage.qml" line="46"/>
         <source>%1 theme applied, please restart the app.</source>
         <translation type="unfinished"></translation>
     </message>
@@ -160,7 +162,7 @@ If you disabled it by mistake, go to BB10 Settings -&gt; Security &amp; Privacy 
 <context>
     <name>notepad::NotepadPlus</name>
     <message>
-        <location filename="../src/NotepadPlus.cpp" line="82"/>
+        <location filename="../src/NotepadPlus.cpp" line="84"/>
         <source>Warning: It seems like the app does not have access to your Shared Folder. This permission is needed for the app to access the file system so that it can allow you to save your files and open them. If you leave this permission off, some features may not work properly.</source>
         <translation type="unfinished"></translation>
     </message>

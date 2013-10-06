@@ -42,13 +42,8 @@ Page
             }
             
             onValueChanged: {
-                if (diff)
-                {
-                    var changed = app.changeTheme(selectedOption.value);
-                    
-                    if (changed) {
-                        persist.showToast( qsTr("%1 theme applied, please restart the app.").arg(selectedOption.text) );
-                    }
+                if (diff) {
+                    persist.showToast( qsTr("%1 theme applied, please restart the app.").arg(selectedOption.text) );
                 }
             }
         }

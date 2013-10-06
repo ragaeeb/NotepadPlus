@@ -23,6 +23,10 @@ Q_DECL_EXPORT int main(int argc, char **argv)
 	qInstallMsgHandler(redirectedMessageOutput);
 #endif
 
+	QByteArray value = QSettings().value("theme").toString().toLocal8Bit();
+	const char* xyz = value.isNull() ? NotepadPlus::default_theme : value.data();
+	setenv("CASCADES_THEME", value.isNull() ? NotepadPlus::default_theme : value.data(), 1);
+
     Application app(argc, argv);
     NotepadPlus::create(&app);
 

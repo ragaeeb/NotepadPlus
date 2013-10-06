@@ -34,11 +34,11 @@ signals:
 	void initialize();
 
 public:
+	static const char* default_theme;
     static void create(Application* app);
     virtual ~NotepadPlus() {}
     Q_INVOKABLE void open(QString const& fileName);
     Q_INVOKABLE bool save(QString const& fileName, QString contents);
-    Q_INVOKABLE bool changeTheme(QString const& theme);
 };
 
 } // notepad
