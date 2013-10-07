@@ -201,6 +201,7 @@ NavigationPane
                     id: uis
                     
                     onSwipedDown: {
+                        textArea.loseFocus();
                         rootPage.actionBarVisibility = ChromeVisibility.Overlay;
                     }
                 }
