@@ -17,6 +17,33 @@ NavigationPane
     
     Menu.definition: CanadaIncMenu {
         projectName: "notepad-plus"
+        
+        onCreationCompleted: {
+            addAction(donateAction);
+        }
+        
+        attachedObjects: [
+            ActionItem {
+                id: donateAction
+                title: qsTr("Donate") + Retranslate.onLanguageChanged
+                imageSource: "images/ic_donate.png"
+                
+                onTriggered: {
+                    donator.trigger("bb.action.OPEN");
+                }
+                
+                attachedObjects: [
+                    Invocation {
+                        id: donator
+                        
+                        query {
+                            mimeType: "text/html"
+                            uri: "https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=admin@canadainc.org&currency_code=CAD&no_shipping=1&tax=0&lc=CA&bn=PP-DonationsBF&item_name=Support NotepadPlus Development"
+                        }
+                    }
+                ]
+            }
+        ]
     }
 
     onPopTransitionEnded: {
@@ -72,7 +99,7 @@ NavigationPane
                 attachedObjects: [
                     FilePicker {
                         id: filePicker
-                        property string lastPath
+                        property string lastPath: persist.getValueFor("lastFile")
                         mode: FilePickerMode.Saver
                         title: qsTr("Specify File Name") + Retranslate.onLanguageChanged
                         type: FileType.Document
@@ -158,7 +185,10 @@ NavigationPane
                         cancelButton.label: qsTr("No") + Retranslate.onLanguageChanged
 
                         onFinished: {
-                            if (result == SystemUiResult.ConfirmButtonSelection) {
+                            if (result == SystemUiResult.ConfirmButtonSelection)
+                            {
+                                persist.remove("lastFile");
+                                lastSavedFile = "";
                                 textArea.resetText();
                                 textArea.requestFocus();
                             }
@@ -180,6 +210,7 @@ NavigationPane
                 Application.aboutToQuit.connect( function onAboutToQuit() {
                     if ( persist.getValueFor("loadCache") == 1 ) {
                         persist.saveValueFor("data", textArea.text);
+                        persist.saveValueFor("lastFile", filePicker.lastPath);
                     }
                 });
                 
