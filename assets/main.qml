@@ -57,6 +57,41 @@ NavigationPane
         
         actions: [
             ActionItem {
+                id: openAction
+                title: qsTr("Open") + Retranslate.onLanguageChanged
+                imageSource: "images/ic_open.png"
+                ActionBar.placement: ActionBarPlacement.OnBar
+                
+                onTriggered: {
+                    fileOpener.directories = [persist.getValueFor("input"), "/accounts/1000/shared/documents"];
+                    fileOpener.open();
+                }
+                
+                shortcuts: [
+                    Shortcut {
+                        key: qsTr("O") + Retranslate.onLanguageChanged
+                    }
+                ]
+                
+                attachedObjects: [
+                    FilePicker {
+                        id: fileOpener
+                        mode: FilePickerMode.Picker
+                        title: qsTr("Choose File") + Retranslate.onLanguageChanged
+                        type: FileType.Other
+                        
+                        onFileSelected: {
+                            var lastFile = selectedFiles[selectedFiles.length - 1];
+                            var lastDir = lastFile.substring(0, lastFile.lastIndexOf("/") + 1);
+                            persist.saveValueFor("input", lastDir);
+                            
+                            app.open(selectedFiles[0]);
+                        }
+                    }
+                ]
+            },
+            
+            ActionItem {
                 id: saveAction
                 title: qsTr("Save") + Retranslate.onLanguageChanged
                 imageSource: "images/ic_save_existing.png"
@@ -122,44 +157,9 @@ NavigationPane
             },
             
             ActionItem {
-                id: openAction
-                title: qsTr("Open") + Retranslate.onLanguageChanged
-                imageSource: "images/ic_open.png"
-                
-                onTriggered: {
-                    fileOpener.directories = [persist.getValueFor("input"), "/accounts/1000/shared/documents"];
-                    fileOpener.open();
-                }
-                
-                shortcuts: [
-                    Shortcut {
-                        key: qsTr("O") + Retranslate.onLanguageChanged
-                    }
-                ]
-                
-                attachedObjects: [
-                    FilePicker {
-                        id: fileOpener
-                        mode: FilePickerMode.Picker
-                        title: qsTr("Choose File") + Retranslate.onLanguageChanged
-                        type: FileType.Other
-                        
-                        onFileSelected: {
-                            var lastFile = selectedFiles[selectedFiles.length - 1];
-                            var lastDir = lastFile.substring(0, lastFile.lastIndexOf("/") + 1);
-                            persist.saveValueFor("input", lastDir);
-
-                            app.open(selectedFiles[0]);
-                        }
-                    }
-                ]
-            },
-            
-            ActionItem {
                 id: copyAllAction
                 title: qsTr("Copy") + Retranslate.onLanguageChanged
                 imageSource: "images/ic_copy_all.png"
-                ActionBar.placement: ActionBarPlacement.OnBar
                 
                 shortcuts: [
                     SystemShortcut {
@@ -220,10 +220,6 @@ NavigationPane
                 });
                 
                 Application.sceneChanged.connect(requestFocus);
-                
-                if ( persist.getValueFor("loadCache") == 1 ) {
-                    text = persist.getValueFor("data");
-                }
             }
             
             onFocusedChanged: {

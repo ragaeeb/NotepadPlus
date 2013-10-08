@@ -2,6 +2,7 @@
 #define NOTEPADPLUS_H_
 
 #include <bb/system/InvokeManager>
+#include <bb/system/SystemProgressToast>
 
 #include "Persistance.h"
 
@@ -22,6 +23,7 @@ class NotepadPlus : public QObject
 
     Persistance m_persistance;
     bb::system::InvokeManager m_invokeManager;
+    bb::system::SystemProgressToast m_progress;
 
     NotepadPlus(Application* app);
     QObject* loadRoot(QString const& qml, bool invoked=false);
@@ -29,6 +31,9 @@ class NotepadPlus : public QObject
 private slots:
 	void init();
 	void invoked(bb::system::InvokeRequest const& request);
+	void onProgress(qint64 current, qint64 total);
+	void onSettingLoaded(QString const& key, QVariant const& result);
+	void onFileLoaded(QString const& path, QVariant const& data);
 
 signals:
 	void initialize();

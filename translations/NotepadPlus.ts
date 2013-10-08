@@ -75,32 +75,32 @@ Note that this app requires the &apos;Shared Files&apos; permission to be able t
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../assets/main.qml" line="61"/>
+        <location filename="../assets/main.qml" line="96"/>
         <source>Save</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../assets/main.qml" line="85"/>
+        <location filename="../assets/main.qml" line="120"/>
         <source>Save As</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../assets/main.qml" line="91"/>
+        <location filename="../assets/main.qml" line="126"/>
         <source>A</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../assets/main.qml" line="104"/>
+        <location filename="../assets/main.qml" line="139"/>
         <source>Specify File Name</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../assets/main.qml" line="115"/>
+        <location filename="../assets/main.qml" line="150"/>
         <source>Successfully written file: %1</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../assets/main.qml" line="117"/>
+        <location filename="../assets/main.qml" line="152"/>
         <source>Could not write file: %1
 
 Did you make sure you gave the app the Shared Files permission? This permission is needed for the app to access your shared folder to write the file.
@@ -109,27 +109,27 @@ If you disabled it by mistake, go to BB10 Settings -&gt; Security &amp; Privacy 
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../assets/main.qml" line="117"/>
+        <location filename="../assets/main.qml" line="152"/>
         <source>OK</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../assets/main.qml" line="126"/>
+        <location filename="../assets/main.qml" line="61"/>
         <source>Open</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../assets/main.qml" line="136"/>
+        <location filename="../assets/main.qml" line="72"/>
         <source>O</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../assets/main.qml" line="144"/>
+        <location filename="../assets/main.qml" line="80"/>
         <source>Choose File</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../assets/main.qml" line="160"/>
+        <location filename="../assets/main.qml" line="161"/>
         <source>Copy</source>
         <translation type="unfinished"></translation>
     </message>
@@ -167,7 +167,17 @@ If you disabled it by mistake, go to BB10 Settings -&gt; Security &amp; Privacy 
 <context>
     <name>notepad::NotepadPlus</name>
     <message>
-        <location filename="../src/NotepadPlus.cpp" line="86"/>
+        <location filename="../src/NotepadPlus.cpp" line="94"/>
+        <source>0% complete...</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/NotepadPlus.cpp" line="111"/>
+        <source>%1% complete...</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/NotepadPlus.cpp" line="134"/>
         <source>Warning: It seems like the app does not have access to your Shared Folder. This permission is needed for the app to access the file system so that it can allow you to save your files and open them. If you leave this permission off, some features may not work properly.</source>
         <translation type="unfinished"></translation>
     </message>

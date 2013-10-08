@@ -1,6 +1,8 @@
 #include "precompiled.h"
 
 #include "NotepadPlus.h"
+#include "AsyncSettingLoader.h"
+#include "FileReaderThread.h"
 #include "InvocationUtils.h"
 #include "IOUtils.h"
 #include "Logger.h"
@@ -8,6 +10,7 @@
 namespace notepad {
 
 using namespace bb::cascades;
+using namespace bb::system;
 using namespace canadainc;
 
 const char* NotepadPlus::default_theme = "bright";
@@ -30,7 +33,24 @@ NotepadPlus::NotepadPlus(bb::cascades::Application *app) : QObject(app)
 		break;
 
 	default:
+		if ( m_persistance.getValueFor("loadCache") == 1 )
+		{
+			AsyncSettingLoader* asl = new AsyncSettingLoader(&m_persistance, QStringList() << "data");
+			connect( asl, SIGNAL( settingLoaded(QString const&, QVariant const&) ), this, SLOT( onSettingLoaded(QString const&, QVariant const&) ) );
+			IOUtils::startThread(asl);
+		}
+
 		break;
+	}
+}
+
+
+void NotepadPlus::onSettingLoaded(QString const& key, QVariant const& result)
+{
+	if (key == "data")
+	{
+		QObject* root = Application::instance()->scene();
+		root->setProperty("body", result);
 	}
 }
 
@@ -70,19 +90,47 @@ void NotepadPlus::invoked(bb::system::InvokeRequest const& request)
 
 void NotepadPlus::open(QString const& uri)
 {
+	m_progress.setState(SystemUiProgressState::Active);
+	m_progress.setStatusMessage( tr("0% complete...") );
+	m_progress.setProgress(0);
+	m_progress.show();
+
+	FileReaderThread* frt = new FileReaderThread();
+	frt->setPath(uri);
+	connect( frt, SIGNAL( fileLoaded(QString const&, QVariant const&) ), this, SLOT( onFileLoaded(QString const&, QVariant const&) ) );
+	connect( frt, SIGNAL( progress(qint64, qint64) ), this, SLOT( onProgress(qint64, qint64) ) );
+
+	IOUtils::startThread(frt);
+}
+
+
+void NotepadPlus::onProgress(qint64 current, qint64 total)
+{
+	int progress = (double)current/total * 100;
+	m_progress.setProgress(progress);
+	m_progress.setStatusMessage( tr("%1% complete...").arg(progress) );
+	m_progress.show();
+}
+
+
+void NotepadPlus::onFileLoaded(QString const& path, QVariant const& data)
+{
+	QString body = data.toString();
+	LOGGER("Setting invoke data" << path << body);
+
 	QObject* root = Application::instance()->scene();
-	QString body = IOUtils::readTextFile(uri);
-
-	LOGGER("Setting invoke data" << uri << body);
-
-	root->setProperty("lastSavedFile", uri);
+	root->setProperty("lastSavedFile", path);
 	root->setProperty("body", body);
+
+	m_progress.cancel();
+	m_progress.setState(SystemUiProgressState::Inactive);
 }
 
 
 void NotepadPlus::init()
 {
 	INIT_SETTING("input", "/accounts/1000/removable/sdcard/documents");
+	m_progress.setState(SystemUiProgressState::Inactive);
     InvocationUtils::validateSharedFolderAccess( tr("Warning: It seems like the app does not have access to your Shared Folder. This permission is needed for the app to access the file system so that it can allow you to save your files and open them. If you leave this permission off, some features may not work properly.") );
 }
 
