@@ -2,6 +2,7 @@
 #define NOTEPADPLUS_H_
 
 #include <bb/system/InvokeManager>
+#include <bb/system/SystemProgressDialog>
 #include <bb/system/SystemProgressToast>
 
 #include "Persistance.h"
@@ -15,6 +16,7 @@ namespace bb {
 namespace notepad {
 
 using namespace bb::cascades;
+using namespace bb::system;
 using namespace canadainc;
 
 class NotepadPlus : public QObject
@@ -22,8 +24,9 @@ class NotepadPlus : public QObject
     Q_OBJECT
 
     Persistance m_persistance;
-    bb::system::InvokeManager m_invokeManager;
-    bb::system::SystemProgressToast m_progress;
+    InvokeManager m_invokeManager;
+    SystemProgressToast m_progress;
+    SystemProgressDialog m_activity;
 
     NotepadPlus(Application* app);
     QObject* loadRoot(QString const& qml, bool invoked=false);

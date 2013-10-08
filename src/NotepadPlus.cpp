@@ -39,6 +39,10 @@ NotepadPlus::NotepadPlus(bb::cascades::Application *app) : QObject(app)
 			AsyncSettingLoader* asl = new AsyncSettingLoader(&m_persistance, QStringList() << "data");
 			connect( asl, SIGNAL( settingLoaded(QString const&, QVariant const&) ), this, SLOT( onSettingLoaded(QString const&, QVariant const&) ) );
 			IOUtils::startThread(asl);
+
+			m_activity.setTitle( tr("Loading...") );
+			m_activity.setBody( tr("Loading cache...") );
+			m_activity.show();
 		}
 
 		break;
@@ -52,6 +56,8 @@ void NotepadPlus::onSettingLoaded(QString const& key, QVariant const& result)
 	{
 		QObject* root = Application::instance()->scene();
 		root->setProperty("body", result);
+
+		m_activity.cancel();
 	}
 }
 

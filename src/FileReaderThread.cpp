@@ -44,10 +44,11 @@ void FileReaderThread::readText()
 
 	if (opened) {
 		int total = outputFile.size();
+		const int chunkSize = total*0.1;
 		QTextStream stream(&outputFile);
 
 		while ( !stream.atEnd() ) {
-			result += stream.read(1024);
+			result += stream.read(chunkSize);
 			emit progress( stream.pos(), total );
 		}
 

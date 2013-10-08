@@ -2,6 +2,113 @@
 <!DOCTYPE TS>
 <TS version="2.0">
 <context>
+    <name>DocumentPage</name>
+    <message>
+        <location filename="../assets/DocumentPage.qml" line="30"/>
+        <source>Open</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../assets/DocumentPage.qml" line="41"/>
+        <source>O</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../assets/DocumentPage.qml" line="49"/>
+        <source>Choose File</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../assets/DocumentPage.qml" line="65"/>
+        <source>Save</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../assets/DocumentPage.qml" line="89"/>
+        <source>Save As</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../assets/DocumentPage.qml" line="95"/>
+        <source>A</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../assets/DocumentPage.qml" line="108"/>
+        <source>Specify File Name</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../assets/DocumentPage.qml" line="121"/>
+        <source>Untitled</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../assets/DocumentPage.qml" line="130"/>
+        <source>Successfully written file: %1</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../assets/DocumentPage.qml" line="132"/>
+        <source>Could not write file: %1
+
+Did you make sure you gave the app the Shared Files permission? This permission is needed for the app to access your shared folder to write the file.
+
+If you disabled it by mistake, go to BB10 Settings -&gt; Security &amp; Privacy -&gt; Application Permissions -&gt; Notepad Plus and enable it.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../assets/DocumentPage.qml" line="132"/>
+        <source>OK</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../assets/DocumentPage.qml" line="141"/>
+        <source>Copy</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../assets/DocumentPage.qml" line="156"/>
+        <source>Top</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../assets/DocumentPage.qml" line="166"/>
+        <source>Bottom</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../assets/DocumentPage.qml" line="177"/>
+        <source>Clear</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../assets/DocumentPage.qml" line="187"/>
+        <source>Confirm</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../assets/DocumentPage.qml" line="188"/>
+        <source>Are you sure you want to clear the text?</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../assets/DocumentPage.qml" line="189"/>
+        <source>Yes</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../assets/DocumentPage.qml" line="190"/>
+        <source>No</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../assets/DocumentPage.qml" line="211"/>
+        <source>Start typing here...</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>HelpPage</name>
     <message>
         <location filename="../assets/HelpPage.qml" line="17"/>
@@ -135,134 +242,75 @@ Note that this app requires the &apos;Shared Files&apos; permission to be able t
 <context>
     <name>main</name>
     <message>
+        <location filename="../assets/main.qml" line="28"/>
+        <source>Doc %1</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <location filename="../assets/main.qml" line="29"/>
+        <source>Untitled</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../assets/main.qml" line="47"/>
         <source>Donate</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../assets/main.qml" line="97"/>
-        <source>Save</source>
+        <location filename="../assets/main.qml" line="70"/>
+        <source>New</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../assets/main.qml" line="121"/>
-        <source>Save As</source>
+        <location filename="../assets/main.qml" line="71"/>
+        <source>New Document</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../assets/main.qml" line="127"/>
-        <source>A</source>
+        <location filename="../assets/main.qml" line="86"/>
+        <source>Default</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../assets/main.qml" line="140"/>
-        <source>Specify File Name</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../assets/main.qml" line="151"/>
-        <source>Successfully written file: %1</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../assets/main.qml" line="153"/>
-        <source>Could not write file: %1
-
-Did you make sure you gave the app the Shared Files permission? This permission is needed for the app to access your shared folder to write the file.
-
-If you disabled it by mistake, go to BB10 Settings -&gt; Security &amp; Privacy -&gt; Application Permissions -&gt; Notepad Plus and enable it.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../assets/main.qml" line="153"/>
-        <source>OK</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../assets/main.qml" line="62"/>
-        <source>Open</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../assets/main.qml" line="73"/>
-        <source>O</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../assets/main.qml" line="81"/>
-        <source>Choose File</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../assets/main.qml" line="162"/>
-        <source>Copy</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../assets/main.qml" line="177"/>
-        <source>Top</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../assets/main.qml" line="187"/>
-        <source>Bottom</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../assets/main.qml" line="198"/>
-        <source>Clear</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../assets/main.qml" line="208"/>
-        <source>Confirm</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../assets/main.qml" line="209"/>
-        <source>Are you sure you want to clear the text?</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../assets/main.qml" line="210"/>
-        <source>Yes</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../assets/main.qml" line="211"/>
-        <source>No</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../assets/main.qml" line="232"/>
-        <source>Start typing here...</source>
+        <location filename="../assets/main.qml" line="87"/>
+        <source>Default Document</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
     <name>notepad::NotepadPlus</name>
     <message>
-        <location filename="../src/NotepadPlus.cpp" line="95"/>
+        <location filename="../src/NotepadPlus.cpp" line="43"/>
+        <source>Loading...</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/NotepadPlus.cpp" line="44"/>
+        <source>Loading cache...</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/NotepadPlus.cpp" line="101"/>
         <source>0% complete...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/NotepadPlus.cpp" line="112"/>
+        <location filename="../src/NotepadPlus.cpp" line="118"/>
         <source>%1% complete...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/NotepadPlus.cpp" line="136"/>
+        <location filename="../src/NotepadPlus.cpp" line="142"/>
         <source>Warning: It seems like the app does not have access to your Shared Folder. This permission is needed for the app to access the file system so that it can allow you to save your files and open them. If you leave this permission off, some features may not work properly.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/NotepadPlus.cpp" line="140"/>
+        <location filename="../src/NotepadPlus.cpp" line="146"/>
         <source>To show the menu-bar at the bottom, either tap or swipe-down from the top-bezel.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/NotepadPlus.cpp" line="140"/>
+        <location filename="../src/NotepadPlus.cpp" line="146"/>
         <source>OK</source>
         <translation type="unfinished"></translation>
     </message>
