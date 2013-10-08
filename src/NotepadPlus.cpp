@@ -17,8 +17,8 @@ const char* NotepadPlus::default_theme = "bright";
 
 NotepadPlus::NotepadPlus(bb::cascades::Application *app) : QObject(app)
 {
-	INIT_SETTING("theme", default_theme);
 	INIT_SETTING("loadCache", 1);
+	INIT_SETTING("tutorialCount", 0);
 
 	loadRoot("main.qml");
 
@@ -129,9 +129,17 @@ void NotepadPlus::onFileLoaded(QString const& path, QVariant const& data)
 
 void NotepadPlus::init()
 {
+	INIT_SETTING("theme", default_theme);
 	INIT_SETTING("input", "/accounts/1000/removable/sdcard/documents");
 	m_progress.setState(SystemUiProgressState::Inactive);
-    InvocationUtils::validateSharedFolderAccess( tr("Warning: It seems like the app does not have access to your Shared Folder. This permission is needed for the app to access the file system so that it can allow you to save your files and open them. If you leave this permission off, some features may not work properly.") );
+    bool ok = InvocationUtils::validateSharedFolderAccess( tr("Warning: It seems like the app does not have access to your Shared Folder. This permission is needed for the app to access the file system so that it can allow you to save your files and open them. If you leave this permission off, some features may not work properly.") );
+
+    if (ok) {
+    	if ( m_persistance.getValueFor("tutorialCount").toInt() < 1 ) {
+        	m_persistance.showToast( tr("To show the menu-bar at the bottom, either tap or swipe-down from the top-bezel.\n\nTo increase/decrease the font size simply do a pinch gesture on the text area."), tr("OK") );
+        	m_persistance.saveValueFor("tutorialCount", 1);
+    	}
+    }
 }
 
 

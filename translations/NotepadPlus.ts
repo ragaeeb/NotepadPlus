@@ -177,8 +177,20 @@ If you disabled it by mistake, go to BB10 Settings -&gt; Security &amp; Privacy 
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/NotepadPlus.cpp" line="134"/>
+        <location filename="../src/NotepadPlus.cpp" line="135"/>
         <source>Warning: It seems like the app does not have access to your Shared Folder. This permission is needed for the app to access the file system so that it can allow you to save your files and open them. If you leave this permission off, some features may not work properly.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/NotepadPlus.cpp" line="139"/>
+        <source>To show the menu-bar at the bottom, either tap or swipe-down from the top-bezel.
+
+To increase/decrease the font size simply do a pinch gesture on the text area.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/NotepadPlus.cpp" line="139"/>
+        <source>OK</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
