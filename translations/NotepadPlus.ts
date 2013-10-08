@@ -134,32 +134,42 @@ If you disabled it by mistake, go to BB10 Settings -&gt; Security &amp; Privacy 
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../assets/main.qml" line="177"/>
+        <location filename="../assets/main.qml" line="176"/>
+        <source>Top</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../assets/main.qml" line="186"/>
+        <source>Bottom</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../assets/main.qml" line="197"/>
         <source>Clear</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../assets/main.qml" line="187"/>
+        <location filename="../assets/main.qml" line="207"/>
         <source>Confirm</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../assets/main.qml" line="188"/>
+        <location filename="../assets/main.qml" line="208"/>
         <source>Are you sure you want to clear the text?</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../assets/main.qml" line="189"/>
+        <location filename="../assets/main.qml" line="209"/>
         <source>Yes</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../assets/main.qml" line="190"/>
+        <location filename="../assets/main.qml" line="210"/>
         <source>No</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../assets/main.qml" line="212"/>
+        <location filename="../assets/main.qml" line="232"/>
         <source>Start typing here...</source>
         <translation type="unfinished"></translation>
     </message>

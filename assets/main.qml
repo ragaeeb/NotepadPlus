@@ -172,6 +172,26 @@ NavigationPane
                 }
             },
             
+            ActionItem {
+                title: qsTr("Top") + Retranslate.onLanguageChanged
+                imageSource: "images/ic_up.png"
+                
+                onTriggered: {
+                    textArea.editor.cursorPosition = 0;
+                    textArea.requestFocus();
+                }
+            },
+            
+            ActionItem {
+                title: qsTr("Bottom") + Retranslate.onLanguageChanged
+                imageSource: "images/ic_down.png"
+                
+                onTriggered: {
+                    textArea.editor.cursorPosition = textArea.text.length-1;
+                    textArea.requestFocus();
+                }
+            },
+            
             DeleteActionItem {
                 id: clearAction
                 title: qsTr("Clear") + Retranslate.onLanguageChanged
