@@ -127,6 +127,7 @@ NavigationPane
                 imageSource: "images/ic_open.png"
                 
                 onTriggered: {
+                    fileOpener.directories = [persist.getValueFor("input"), "/accounts/1000/shared/documents"];
                     fileOpener.open();
                 }
                 
@@ -144,6 +145,10 @@ NavigationPane
                         type: FileType.Other
                         
                         onFileSelected: {
+                            var lastFile = selectedFiles[selectedFiles.length - 1];
+                            var lastDir = lastFile.substring(0, lastFile.lastIndexOf("/") + 1);
+                            persist.saveValueFor("input", lastDir);
+
                             app.open(selectedFiles[0]);
                         }
                     }

@@ -119,47 +119,47 @@ If you disabled it by mistake, go to BB10 Settings -&gt; Security &amp; Privacy 
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../assets/main.qml" line="135"/>
+        <location filename="../assets/main.qml" line="136"/>
         <source>O</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../assets/main.qml" line="143"/>
+        <location filename="../assets/main.qml" line="144"/>
         <source>Choose File</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../assets/main.qml" line="155"/>
+        <location filename="../assets/main.qml" line="160"/>
         <source>Copy</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../assets/main.qml" line="172"/>
+        <location filename="../assets/main.qml" line="177"/>
         <source>Clear</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../assets/main.qml" line="182"/>
+        <location filename="../assets/main.qml" line="187"/>
         <source>Confirm</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../assets/main.qml" line="183"/>
+        <location filename="../assets/main.qml" line="188"/>
         <source>Are you sure you want to clear the text?</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../assets/main.qml" line="184"/>
+        <location filename="../assets/main.qml" line="189"/>
         <source>Yes</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../assets/main.qml" line="185"/>
+        <location filename="../assets/main.qml" line="190"/>
         <source>No</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../assets/main.qml" line="207"/>
+        <location filename="../assets/main.qml" line="212"/>
         <source>Start typing here...</source>
         <translation type="unfinished"></translation>
     </message>
@@ -167,7 +167,7 @@ If you disabled it by mistake, go to BB10 Settings -&gt; Security &amp; Privacy 
 <context>
     <name>notepad::NotepadPlus</name>
     <message>
-        <location filename="../src/NotepadPlus.cpp" line="84"/>
+        <location filename="../src/NotepadPlus.cpp" line="86"/>
         <source>Warning: It seems like the app does not have access to your Shared Folder. This permission is needed for the app to access the file system so that it can allow you to save your files and open them. If you leave this permission off, some features may not work properly.</source>
         <translation type="unfinished"></translation>
     </message>

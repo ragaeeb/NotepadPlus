@@ -80,7 +80,9 @@ void NotepadPlus::open(QString const& uri)
 }
 
 
-void NotepadPlus::init() {
+void NotepadPlus::init()
+{
+	INIT_SETTING("input", "/accounts/1000/removable/sdcard/documents");
     InvocationUtils::validateSharedFolderAccess( tr("Warning: It seems like the app does not have access to your Shared Folder. This permission is needed for the app to access the file system so that it can allow you to save your files and open them. If you leave this permission off, some features may not work properly.") );
 }
 
