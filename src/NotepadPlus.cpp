@@ -19,6 +19,7 @@ NotepadPlus::NotepadPlus(bb::cascades::Application *app) : QObject(app)
 {
 	INIT_SETTING("loadCache", 1);
 	INIT_SETTING("tutorialCount", 0);
+	INIT_SETTING("fontSize", FontSize::Default);
 
 	loadRoot("main.qml");
 
@@ -136,7 +137,7 @@ void NotepadPlus::init()
 
     if (ok) {
     	if ( m_persistance.getValueFor("tutorialCount").toInt() < 1 ) {
-        	m_persistance.showToast( tr("To show the menu-bar at the bottom, either tap or swipe-down from the top-bezel.\n\nTo increase/decrease the font size simply do a pinch gesture on the text area."), tr("OK") );
+        	m_persistance.showToast( tr("To show the menu-bar at the bottom, either tap or swipe-down from the top-bezel."), tr("OK") );
         	m_persistance.saveValueFor("tutorialCount", 1);
     	}
     }

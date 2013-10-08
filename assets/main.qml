@@ -2,6 +2,7 @@ import bb 1.0
 import bb.cascades 1.0
 import bb.cascades.pickers 1.0
 import bb.system 1.0
+import QtQuick 1.0
 
 NavigationPane
 {
@@ -225,11 +226,27 @@ NavigationPane
         
         TextArea {
             id: textArea
-
             horizontalAlignment: HorizontalAlignment.Fill
             verticalAlignment: VerticalAlignment.Fill
             backgroundVisible: false
             hintText: qsTr("Start typing here...") + Retranslate.onLanguageChanged
+            
+            function onSettingChanged(key)
+            {
+                if (key == "fontSize")
+                {
+                    var sizeFont = persist.getValueFor("fontSize");
+                    
+                    if (sizeFont != undefined)
+                    {
+                        if (typeof sizeFont == 'string') {
+                            textStyle.fontSize = parseInt(sizeFont);
+                        } else {
+                            textStyle.fontSize = sizeFont;
+                        }
+                    }
+                }
+            }
             
             onCreationCompleted: {
                 Application.aboutToQuit.connect( function onAboutToQuit() {
@@ -240,6 +257,8 @@ NavigationPane
                 });
                 
                 Application.sceneChanged.connect(requestFocus);
+                persist.settingChanged.connect(onSettingChanged);
+                onSettingChanged("fontSize");
             }
             
             onFocusedChanged: {
@@ -254,7 +273,7 @@ NavigationPane
                     
                     onSwipedDown: {
                         textArea.loseFocus();
-                        rootPage.actionBarVisibility = ChromeVisibility.Overlay;
+                        rootPage.actionBarVisibility = ChromeVisibility.Visible;
                     }
                 }
             ]
