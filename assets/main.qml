@@ -15,6 +15,15 @@ TabbedPane
         activeTab.content.body = body;
     }
     
+    onCreationCompleted: {
+        Application.aboutToQuit.connect( function onAboutToQuit() {
+            if ( root.count() == 2 && persist.getValueFor("loadCache") == 1 ) {
+                persist.saveValueFor("data", activeTab.content.body);
+                persist.saveValueFor("lastFile", activeTab.content.lastSavedFile);
+            }
+        });
+    }
+    
     attachedObjects: [
         ComponentDefinition {
             id: definition

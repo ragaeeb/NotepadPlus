@@ -34,22 +34,22 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../assets/DocumentPage.qml" line="108"/>
+        <location filename="../assets/DocumentPage.qml" line="114"/>
         <source>Specify File Name</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../assets/DocumentPage.qml" line="121"/>
+        <location filename="../assets/DocumentPage.qml" line="127"/>
         <source>Untitled</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../assets/DocumentPage.qml" line="130"/>
+        <location filename="../assets/DocumentPage.qml" line="136"/>
         <source>Successfully written file: %1</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../assets/DocumentPage.qml" line="132"/>
+        <location filename="../assets/DocumentPage.qml" line="138"/>
         <source>Could not write file: %1
 
 Did you make sure you gave the app the Shared Files permission? This permission is needed for the app to access your shared folder to write the file.
@@ -58,52 +58,52 @@ If you disabled it by mistake, go to BB10 Settings -&gt; Security &amp; Privacy 
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../assets/DocumentPage.qml" line="132"/>
+        <location filename="../assets/DocumentPage.qml" line="138"/>
         <source>OK</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../assets/DocumentPage.qml" line="141"/>
+        <location filename="../assets/DocumentPage.qml" line="147"/>
         <source>Copy</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../assets/DocumentPage.qml" line="156"/>
+        <location filename="../assets/DocumentPage.qml" line="162"/>
         <source>Top</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../assets/DocumentPage.qml" line="166"/>
+        <location filename="../assets/DocumentPage.qml" line="172"/>
         <source>Bottom</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../assets/DocumentPage.qml" line="177"/>
+        <location filename="../assets/DocumentPage.qml" line="183"/>
         <source>Clear</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../assets/DocumentPage.qml" line="187"/>
+        <location filename="../assets/DocumentPage.qml" line="193"/>
         <source>Confirm</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../assets/DocumentPage.qml" line="188"/>
+        <location filename="../assets/DocumentPage.qml" line="194"/>
         <source>Are you sure you want to clear the text?</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../assets/DocumentPage.qml" line="189"/>
+        <location filename="../assets/DocumentPage.qml" line="195"/>
         <source>Yes</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../assets/DocumentPage.qml" line="190"/>
+        <location filename="../assets/DocumentPage.qml" line="196"/>
         <source>No</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../assets/DocumentPage.qml" line="211"/>
+        <location filename="../assets/DocumentPage.qml" line="217"/>
         <source>Start typing here...</source>
         <translation type="unfinished"></translation>
     </message>
@@ -116,7 +116,7 @@ If you disabled it by mistake, go to BB10 Settings -&gt; Security &amp; Privacy 
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../assets/HelpPage.qml" line="38"/>
+        <location filename="../assets/HelpPage.qml" line="39"/>
         <source>
 
 (c) 2013 %1. All Rights Reserved.
@@ -242,37 +242,37 @@ Note that this app requires the &apos;Shared Files&apos; permission to be able t
 <context>
     <name>main</name>
     <message>
-        <location filename="../assets/main.qml" line="28"/>
+        <location filename="../assets/main.qml" line="37"/>
         <source>Doc %1</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../assets/main.qml" line="29"/>
+        <location filename="../assets/main.qml" line="38"/>
         <source>Untitled</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../assets/main.qml" line="47"/>
+        <location filename="../assets/main.qml" line="56"/>
         <source>Donate</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../assets/main.qml" line="70"/>
+        <location filename="../assets/main.qml" line="79"/>
         <source>New</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../assets/main.qml" line="71"/>
+        <location filename="../assets/main.qml" line="80"/>
         <source>New Document</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../assets/main.qml" line="86"/>
+        <location filename="../assets/main.qml" line="95"/>
         <source>Default</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../assets/main.qml" line="87"/>
+        <location filename="../assets/main.qml" line="96"/>
         <source>Default Document</source>
         <translation type="unfinished"></translation>
     </message>

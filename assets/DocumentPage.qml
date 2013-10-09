@@ -75,7 +75,7 @@ NavigationPane
                 
                 onCreationCompleted: {
                     filePicker.lastPathChanged.connect( function() {
-                            saveAction.enabled = filePicker.lastPath.length > 0;
+                        saveAction.enabled = filePicker.lastPath.length > 0;
                     });
                 }
                 
@@ -83,20 +83,26 @@ NavigationPane
                     filePicker.fileSelected([filePicker.lastPath]);
                 }
             },
-            
+
             ActionItem {
                 id: saveAsAction
                 title: qsTr("Save As") + Retranslate.onLanguageChanged
                 imageSource: "images/ic_save.png"
                 ActionBar.placement: ActionBarPlacement.OnBar
-                
+
                 shortcuts: [
                     Shortcut {
                         key: qsTr("A") + Retranslate.onLanguageChanged
                     }
                 ]
-                
+
                 onTriggered: {
+                    if (lastSavedFile.length > 0) {
+                        filePicker.defaultSaveFileNames = [ filePicker.getTitle() ];
+                    } else {
+                        filePicker.defaultSaveFileNames = [ Qt.formatDateTime( new Date(), "MMM-d-yy hh-mm") ];
+                    }
+                    
                     filePicker.open();
                 }
                 
@@ -107,21 +113,21 @@ NavigationPane
                         mode: FilePickerMode.Saver
                         title: qsTr("Specify File Name") + Retranslate.onLanguageChanged
                         type: FileType.Document
-                        filter: [ "*.txt" ]
-                        defaultSaveFileNames: ["New.txt"]
+                        filter: ["*.txt"]
                         allowOverwrite: true
-                        
+
+                        function getTitle() {
+                            return lastPath.substring( lastPath.lastIndexOf("/")+1 );
+                        }
+
                         onLastPathChanged: {
-                            if (lastPath.length > 0)
-                            {
-                                var uri = lastPath.substring( lastPath.lastIndexOf("/")+1 );
-                                uri = uri.substring( 0, uri.lastIndexOf(".") );
-                                navigationPane.parent.title = uri;
+                            if (lastPath.length > 0) {
+                                navigationPane.parent.title = getTitle();
                             } else {
                                 navigationPane.parent.title = qsTr("Untitled");
                             }
                         }
-                        
+
                         onFileSelected: {
                             lastPath = selectedFiles[0];
                             var written = app.save(lastPath, textArea.text);
@@ -135,7 +141,7 @@ NavigationPane
                     }
                 ]
             },
-            
+
             ActionItem {
                 id: copyAllAction
                 title: qsTr("Copy") + Retranslate.onLanguageChanged
@@ -151,7 +157,7 @@ NavigationPane
                     persist.copyToClipboard(textArea.text);
                 }
             },
-            
+
             ActionItem {
                 title: qsTr("Top") + Retranslate.onLanguageChanged
                 imageSource: "images/ic_up.png"
@@ -161,7 +167,7 @@ NavigationPane
                     textArea.requestFocus();
                 }
             },
-            
+
             ActionItem {
                 title: qsTr("Bottom") + Retranslate.onLanguageChanged
                 imageSource: "images/ic_down.png"
@@ -176,11 +182,11 @@ NavigationPane
                 id: clearAction
                 title: qsTr("Clear") + Retranslate.onLanguageChanged
                 imageSource: "images/ic_delete.png"
-                
+
                 onTriggered: {
                     prompt.show()
                 }
-                
+
                 attachedObjects: [
                     SystemDialog {
                         id: prompt
@@ -202,14 +208,14 @@ NavigationPane
                 ]
             }
         ]
-        
+
         TextArea {
             id: textArea
             horizontalAlignment: HorizontalAlignment.Fill
             verticalAlignment: VerticalAlignment.Fill
             backgroundVisible: false
             hintText: qsTr("Start typing here...") + Retranslate.onLanguageChanged
-            
+
             function onSettingChanged(key)
             {
                 if (key == "fontSize")
@@ -226,20 +232,13 @@ NavigationPane
                     }
                 }
             }
-            
+
             onCreationCompleted: {
-                Application.aboutToQuit.connect( function onAboutToQuit() {
-                        if ( persist.getValueFor("loadCache") == 1 ) {
-                            persist.saveValueFor("data", textArea.text);
-                            persist.saveValueFor("lastFile", filePicker.lastPath);
-                        }
-                });
-            
-            Application.sceneChanged.connect(requestFocus);
-            persist.settingChanged.connect(onSettingChanged);
-            onSettingChanged("fontSize");
+                Application.sceneChanged.connect(requestFocus);
+                persist.settingChanged.connect(onSettingChanged);
+                onSettingChanged("fontSize");
             }
-            
+
             onFocusedChanged: {
                 if (focused) {
                     rootPage.actionBarVisibility = ChromeVisibility.Hidden;
@@ -249,7 +248,7 @@ NavigationPane
             attachedObjects: [
                 UIToolkitSupport {
                     id: uis
-                    
+
                     onSwipedDown: {
                         textArea.loseFocus();
                         rootPage.actionBarVisibility = ChromeVisibility.Visible;
