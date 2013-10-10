@@ -100,7 +100,7 @@ NavigationPane
                     if (lastSavedFile.length > 0) {
                         filePicker.defaultSaveFileNames = [ filePicker.getTitle() ];
                     } else {
-                        filePicker.defaultSaveFileNames = [ Qt.formatDateTime( new Date(), "MMM-d-yy hh-mm") ];
+                        filePicker.defaultSaveFileNames = [ Qt.formatDateTime( new Date(), "MMM-d-yy hh-mm")+".txt" ];
                     }
                     
                     filePicker.open();
@@ -109,7 +109,7 @@ NavigationPane
                 attachedObjects: [
                     FilePicker {
                         id: filePicker
-                        property string lastPath: persist.getValueFor("lastFile")
+                        property string lastPath
                         mode: FilePickerMode.Saver
                         title: qsTr("Specify File Name") + Retranslate.onLanguageChanged
                         type: FileType.Document
@@ -128,7 +128,7 @@ NavigationPane
                             }
                         }
 
-                        onFileSelected: {
+                        onFileSelected: {                        
                             lastPath = selectedFiles[0];
                             var written = app.save(lastPath, textArea.text);
                             

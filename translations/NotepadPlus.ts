@@ -290,27 +290,27 @@ Note that this app requires the &apos;Shared Files&apos; permission to be able t
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/NotepadPlus.cpp" line="101"/>
+        <location filename="../src/NotepadPlus.cpp" line="102"/>
         <source>0% complete...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/NotepadPlus.cpp" line="118"/>
+        <location filename="../src/NotepadPlus.cpp" line="119"/>
         <source>%1% complete...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/NotepadPlus.cpp" line="142"/>
+        <location filename="../src/NotepadPlus.cpp" line="143"/>
         <source>Warning: It seems like the app does not have access to your Shared Folder. This permission is needed for the app to access the file system so that it can allow you to save your files and open them. If you leave this permission off, some features may not work properly.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/NotepadPlus.cpp" line="146"/>
+        <location filename="../src/NotepadPlus.cpp" line="147"/>
         <source>To show the menu-bar at the bottom, either tap or swipe-down from the top-bezel.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/NotepadPlus.cpp" line="146"/>
+        <location filename="../src/NotepadPlus.cpp" line="147"/>
         <source>OK</source>
         <translation type="unfinished"></translation>
     </message>

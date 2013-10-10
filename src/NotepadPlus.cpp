@@ -55,6 +55,7 @@ void NotepadPlus::onSettingLoaded(QString const& key, QVariant const& result)
 	if (key == "data")
 	{
 		QObject* root = Application::instance()->scene();
+		root->setProperty( "lastSavedFile", m_persistance.getValueFor("lastFile") );
 		root->setProperty("body", result);
 
 		m_activity.cancel();
