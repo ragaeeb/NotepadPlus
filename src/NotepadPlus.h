@@ -5,6 +5,8 @@
 #include <bb/system/SystemProgressDialog>
 #include <bb/system/SystemProgressToast>
 
+#include <QFutureWatcher>
+
 #include "Persistance.h"
 
 namespace bb {
@@ -27,6 +29,7 @@ class NotepadPlus : public QObject
     InvokeManager m_invokeManager;
     SystemProgressToast m_progress;
     SystemProgressDialog m_activity;
+    QFutureWatcher<QString> m_future;
 
     NotepadPlus(Application* app);
     QObject* loadRoot(QString const& qml, bool invoked=false);
@@ -35,7 +38,7 @@ private slots:
 	void init();
 	void invoked(bb::system::InvokeRequest const& request);
 	void onProgress(qint64 current, qint64 total);
-	void onSettingLoaded(QString const& key, QVariant const& result);
+	void onLoadComplete();
 	void onFileLoaded(QString const& path, QVariant const& data);
 
 signals:

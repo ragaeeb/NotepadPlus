@@ -13,6 +13,35 @@ Page
         }
     ]
     
+    actionBarAutoHideBehavior: ActionBarAutoHideBehavior.HideOnScroll
+    
+    actions: [
+        InvokeActionItem
+        {
+            title: qsTr("Our BBM Channel") + Retranslate.onLanguageChanged
+            ActionBar.placement: ActionBarPlacement.OnBar
+            imageSource: "images/menu/ic_channel.png"
+            
+            query {
+                invokeTargetId: "sys.bbm.channels.card.previewer"
+                uri: "bbmc:C0034D28B"
+            }
+        },
+        
+        InvokeActionItem
+        {
+            imageSource: "images/menu/ic_video_tutorial.png"
+            title: qsTr("Video Tutorial") + Retranslate.onLanguageChanged
+            ActionBar.placement: ActionBarPlacement.OnBar
+            
+            query {
+                mimeType: "text/html"
+                uri: "http://www.youtube.com/watch?v=AbHZLmWSKts"
+                invokeActionId: "bb.action.OPEN"
+            }
+        }
+    ]
+    
     titleBar: TitleBar {
         title: qsTr("Help") + Retranslate.onLanguageChanged
     }

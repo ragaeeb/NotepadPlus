@@ -111,12 +111,22 @@ If you disabled it by mistake, go to BB10 Settings -&gt; Security &amp; Privacy 
 <context>
     <name>HelpPage</name>
     <message>
-        <location filename="../assets/HelpPage.qml" line="17"/>
+        <location filename="../assets/HelpPage.qml" line="21"/>
+        <source>Our BBM Channel</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../assets/HelpPage.qml" line="34"/>
+        <source>Video Tutorial</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../assets/HelpPage.qml" line="46"/>
         <source>Help</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../assets/HelpPage.qml" line="39"/>
+        <location filename="../assets/HelpPage.qml" line="68"/>
         <source>
 
 (c) 2014 %1. All Rights Reserved.
@@ -252,22 +262,22 @@ Note that this app requires the &apos;Shared Files&apos; permission to be able t
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../assets/main.qml" line="56"/>
+        <location filename="../assets/main.qml" line="58"/>
         <source>New</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../assets/main.qml" line="57"/>
+        <location filename="../assets/main.qml" line="59"/>
         <source>New Document</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../assets/main.qml" line="72"/>
+        <location filename="../assets/main.qml" line="74"/>
         <source>Default</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../assets/main.qml" line="73"/>
+        <location filename="../assets/main.qml" line="75"/>
         <source>Default Document</source>
         <translation type="unfinished"></translation>
     </message>
@@ -275,37 +285,37 @@ Note that this app requires the &apos;Shared Files&apos; permission to be able t
 <context>
     <name>notepad::NotepadPlus</name>
     <message>
-        <location filename="../src/NotepadPlus.cpp" line="43"/>
+        <location filename="../src/NotepadPlus.cpp" line="52"/>
         <source>Loading...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/NotepadPlus.cpp" line="44"/>
+        <location filename="../src/NotepadPlus.cpp" line="53"/>
         <source>Loading cache...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/NotepadPlus.cpp" line="102"/>
+        <location filename="../src/NotepadPlus.cpp" line="108"/>
         <source>0% complete...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/NotepadPlus.cpp" line="119"/>
+        <location filename="../src/NotepadPlus.cpp" line="125"/>
         <source>%1% complete...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/NotepadPlus.cpp" line="143"/>
+        <location filename="../src/NotepadPlus.cpp" line="149"/>
         <source>Warning: It seems like the app does not have access to your Shared Folder. This permission is needed for the app to access the file system so that it can allow you to save your files and open them. If you leave this permission off, some features may not work properly.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/NotepadPlus.cpp" line="147"/>
+        <location filename="../src/NotepadPlus.cpp" line="153"/>
         <source>To show the menu-bar at the bottom, either tap or swipe-down from the top-bezel.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/NotepadPlus.cpp" line="147"/>
+        <location filename="../src/NotepadPlus.cpp" line="153"/>
         <source>OK</source>
         <translation type="unfinished"></translation>
     </message>

@@ -28,7 +28,7 @@ NavigationPane
             ActionItem {
                 id: openAction
                 title: qsTr("Open") + Retranslate.onLanguageChanged
-                imageSource: "images/ic_open.png"
+                imageSource: "images/menu/ic_open.png"
                 ActionBar.placement: ActionBarPlacement.OnBar
                 
                 onTriggered: {
@@ -63,7 +63,7 @@ NavigationPane
             ActionItem {
                 id: saveAction
                 title: qsTr("Save") + Retranslate.onLanguageChanged
-                imageSource: "images/ic_save_existing.png"
+                imageSource: "images/menu/ic_save_existing.png"
                 ActionBar.placement: ActionBarPlacement.OnBar
                 enabled: filePicker.lastPath.length > 0;
                 
@@ -87,7 +87,7 @@ NavigationPane
             ActionItem {
                 id: saveAsAction
                 title: qsTr("Save As") + Retranslate.onLanguageChanged
-                imageSource: "images/ic_save.png"
+                imageSource: "images/menu/ic_save.png"
                 ActionBar.placement: ActionBarPlacement.OnBar
 
                 shortcuts: [
@@ -145,7 +145,7 @@ NavigationPane
             ActionItem {
                 id: copyAllAction
                 title: qsTr("Copy") + Retranslate.onLanguageChanged
-                imageSource: "images/ic_copy_all.png"
+                imageSource: "images/menu/ic_copy_all.png"
                 
                 shortcuts: [
                     SystemShortcut {
@@ -160,7 +160,7 @@ NavigationPane
 
             ActionItem {
                 title: qsTr("Top") + Retranslate.onLanguageChanged
-                imageSource: "images/ic_up.png"
+                imageSource: "images/menu/ic_up.png"
                 
                 onTriggered: {
                     textArea.editor.cursorPosition = 0;
@@ -170,7 +170,7 @@ NavigationPane
 
             ActionItem {
                 title: qsTr("Bottom") + Retranslate.onLanguageChanged
-                imageSource: "images/ic_down.png"
+                imageSource: "images/menu/ic_down.png"
                 
                 onTriggered: {
                     textArea.editor.cursorPosition = textArea.text.length-1;
@@ -181,7 +181,7 @@ NavigationPane
             DeleteActionItem {
                 id: clearAction
                 title: qsTr("Clear") + Retranslate.onLanguageChanged
-                imageSource: "images/ic_delete.png"
+                imageSource: "images/menu/ic_delete.png"
 
                 onTriggered: {
                     prompt.show()

@@ -6,3 +6,5 @@
 #include <bb/cascades/pickers/FilePicker>
 
 #include <bb/UIToolkitSupport>
+
+#include <QtConcurrentRun>

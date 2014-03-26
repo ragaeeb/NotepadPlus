@@ -1,11 +1,20 @@
 #include "precompiled.h"
 
 #include "NotepadPlus.h"
-#include "AsyncSettingLoader.h"
 #include "FileReaderThread.h"
 #include "InvocationUtils.h"
 #include "IOUtils.h"
 #include "Logger.h"
+
+namespace {
+
+QString loadLastSaved()
+{
+    QSettings s;
+    return s.value("data").toString();
+}
+
+}
 
 namespace notepad {
 
@@ -18,7 +27,6 @@ const char* NotepadPlus::default_theme = "bright";
 NotepadPlus::NotepadPlus(bb::cascades::Application *app) : QObject(app)
 {
 	INIT_SETTING("loadCache", 1);
-	INIT_SETTING("tutorialCount", 0);
 	INIT_SETTING("fontSize", FontSize::Default);
 
 	loadRoot("main.qml");
@@ -36,9 +44,10 @@ NotepadPlus::NotepadPlus(bb::cascades::Application *app) : QObject(app)
 	default:
 		if ( m_persistance.getValueFor("loadCache") == 1 )
 		{
-			AsyncSettingLoader* asl = new AsyncSettingLoader(&m_persistance, QStringList() << "data");
-			connect( asl, SIGNAL( settingLoaded(QString const&, QVariant const&) ), this, SLOT( onSettingLoaded(QString const&, QVariant const&) ) );
-			IOUtils::startThread(asl);
+		    connect( &m_future, SIGNAL( finished() ), this, SLOT( onLoadComplete() ) );
+
+		    QFuture<QString> future = QtConcurrent::run(loadLastSaved);
+		    m_future.setFuture(future);
 
 			m_activity.setTitle( tr("Loading...") );
 			m_activity.setBody( tr("Loading cache...") );
@@ -50,16 +59,13 @@ NotepadPlus::NotepadPlus(bb::cascades::Application *app) : QObject(app)
 }
 
 
-void NotepadPlus::onSettingLoaded(QString const& key, QVariant const& result)
+void NotepadPlus::onLoadComplete()
 {
-	if (key == "data")
-	{
-		QObject* root = Application::instance()->scene();
-		root->setProperty( "lastSavedFile", m_persistance.getValueFor("lastFile") );
-		root->setProperty("body", result);
+    QObject* root = Application::instance()->scene();
+    root->setProperty( "lastSavedFile", m_persistance.getValueFor("lastFile") );
+    root->setProperty( "body", m_future.result() );
 
-		m_activity.cancel();
-	}
+    m_activity.cancel();
 }
 
 
@@ -143,9 +149,9 @@ void NotepadPlus::init()
     bool ok = InvocationUtils::validateSharedFolderAccess( tr("Warning: It seems like the app does not have access to your Shared Folder. This permission is needed for the app to access the file system so that it can allow you to save your files and open them. If you leave this permission off, some features may not work properly.") );
 
     if (ok) {
-    	if ( m_persistance.getValueFor("tutorialCount").toInt() < 1 ) {
+    	if ( !m_persistance.contains("swipeTutorial") ) {
         	m_persistance.showToast( tr("To show the menu-bar at the bottom, either tap or swipe-down from the top-bezel."), tr("OK") );
-        	m_persistance.saveValueFor("tutorialCount", 1);
+        	m_persistance.saveValueFor("swipeTutorial", 1);
     	}
     }
 }

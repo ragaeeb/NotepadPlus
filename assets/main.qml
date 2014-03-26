@@ -24,25 +24,6 @@ TabbedPane
         });
     }
     
-    attachedObjects: [
-        ComponentDefinition {
-            id: definition
-        },
-        
-        ComponentDefinition
-        {
-            id: newDefinition
-            
-            Tab {
-                title: qsTr("Doc %1").arg( root.count() )
-                description: qsTr("Untitled") + Retranslate.onLanguageChanged
-                imageSource: "images/ic_doc.png"
-                
-                DocumentPage {}
-            }
-        }
-    ]
-    
     Menu.definition: CanadaIncMenu
     {
         projectName: "notepad-plus"
@@ -55,7 +36,7 @@ TabbedPane
         id: newTab
         title: qsTr("New") + Retranslate.onLanguageChanged
         description: qsTr("New Document") + Retranslate.onLanguageChanged
-        imageSource: "images/ic_new_doc.png"
+        imageSource: "images/tabs/ic_new_doc.png"
         
         onTriggered: {
             var newDoc = newDefinition.createObject();
@@ -64,6 +45,21 @@ TabbedPane
             root.activeTab = newDoc;
             newDoc.triggered();
         }
+        
+        attachedObjects: [
+            ComponentDefinition
+            {
+                id: newDefinition
+                
+                Tab {
+                    title: qsTr("Doc %1").arg( root.count() )
+                    description: qsTr("Untitled") + Retranslate.onLanguageChanged
+                    imageSource: "images/tabs/ic_doc.png"
+                    
+                    DocumentPage {}
+                }
+            }
+        ]
     }
     
     Tab
@@ -71,7 +67,7 @@ TabbedPane
         id: defaultTab
         title: qsTr("Default") + Retranslate.onLanguageChanged
         description: qsTr("Default Document") + Retranslate.onLanguageChanged
-        imageSource: "images/ic_doc.png"
+        imageSource: "images/tabs/ic_doc.png"
         delegateActivationPolicy: TabDelegateActivationPolicy.ActivateWhenSelected
         
         delegate: Delegate {
