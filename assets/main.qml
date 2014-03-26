@@ -1,4 +1,4 @@
-import bb.cascades 1.0
+import bb.cascades 1.2
 
 TabbedPane
 {
@@ -43,35 +43,12 @@ TabbedPane
         }
     ]
     
-    Menu.definition: CanadaIncMenu {
+    Menu.definition: CanadaIncMenu
+    {
         projectName: "notepad-plus"
-        
-        onCreationCompleted: {
-            addAction(donateAction);
-        }
-        
-        attachedObjects: [
-            ActionItem {
-                id: donateAction
-                title: qsTr("Donate") + Retranslate.onLanguageChanged
-                imageSource: "images/ic_donate.png"
-                
-                onTriggered: {
-                    donator.trigger("bb.action.OPEN");
-                }
-                
-                attachedObjects: [
-                    Invocation {
-                        id: donator
-                        
-                        query {
-                            mimeType: "text/html"
-                            uri: "https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=admin@canadainc.org&currency_code=CAD&no_shipping=1&tax=0&lc=CA&bn=PP-DonationsBF&item_name=Support NotepadPlus Development"
-                        }
-                    }
-                ]
-            }
-        ]
+        allowDonations: true
+        promoteChannel: true
+        bbWorldID: "26594872"
     }
     
     Tab {
@@ -95,7 +72,10 @@ TabbedPane
         title: qsTr("Default") + Retranslate.onLanguageChanged
         description: qsTr("Default Document") + Retranslate.onLanguageChanged
         imageSource: "images/ic_doc.png"
+        delegateActivationPolicy: TabDelegateActivationPolicy.ActivateWhenSelected
         
-        DocumentPage {}
+        delegate: Delegate {
+            source: "DocumentPage.qml"
+        }
     }
 }

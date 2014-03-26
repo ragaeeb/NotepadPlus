@@ -35,8 +35,8 @@ Page
                 verticalAlignment: VerticalAlignment.Center
                 textStyle.textAlign: TextAlign.Center
                 textStyle.fontSize: FontSize.Small
-                content.flags: TextContentFlag.ActiveText
-                text: qsTr("\n\n(c) 2013 %1. All Rights Reserved.\n%2 %3\n\nPlease report all bugs to:\nsupport@canadainc.org\n\nA simple lightweight notepad app for BB10. The idea was to make the startup time almost instant while maximizing usefulness.\n\nNote that this app requires the 'Shared Files' permission to be able to save the document into your chosen folder.").arg(packageInfo.author).arg(appInfo.title).arg(appInfo.version)
+                content.flags: TextContentFlag.ActiveText | TextContentFlag.EmoticonsOff
+                text: qsTr("\n\n(c) 2014 %1. All Rights Reserved.\n%2 %3\n\nPlease report all bugs to:\nsupport@canadainc.org\n\nA simple lightweight notepad app for BB10. The idea was to make the startup time almost instant while maximizing usefulness.\n\nNote that this app requires the 'Shared Files' permission to be able to save the document into your chosen folder.").arg(packageInfo.author).arg(appInfo.title).arg(appInfo.version)
             }
         }
     }

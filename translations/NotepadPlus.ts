@@ -119,7 +119,7 @@ If you disabled it by mistake, go to BB10 Settings -&gt; Security &amp; Privacy 
         <location filename="../assets/HelpPage.qml" line="39"/>
         <source>
 
-(c) 2013 %1. All Rights Reserved.
+(c) 2014 %1. All Rights Reserved.
 %2 %3
 
 Please report all bugs to:
@@ -253,26 +253,21 @@ Note that this app requires the &apos;Shared Files&apos; permission to be able t
     </message>
     <message>
         <location filename="../assets/main.qml" line="56"/>
-        <source>Donate</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../assets/main.qml" line="79"/>
         <source>New</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../assets/main.qml" line="80"/>
+        <location filename="../assets/main.qml" line="57"/>
         <source>New Document</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../assets/main.qml" line="95"/>
+        <location filename="../assets/main.qml" line="72"/>
         <source>Default</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../assets/main.qml" line="96"/>
+        <location filename="../assets/main.qml" line="73"/>
         <source>Default Document</source>
         <translation type="unfinished"></translation>
     </message>

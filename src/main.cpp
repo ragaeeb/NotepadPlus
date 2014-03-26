@@ -1,12 +1,11 @@
 #include "precompiled.h"
 
 #include "NotepadPlus.h"
-#include "Logger.h"
 
 using namespace bb::cascades;
 using namespace notepad;
 
-#ifdef DEBUG
+#if !defined(QT_NO_DEBUG)
 namespace {
 
 void redirectedMessageOutput(QtMsgType type, const char *msg) {
@@ -25,7 +24,7 @@ Q_DECL_EXPORT int main(int argc, char **argv)
 
     Application app(argc, argv);
 
-#ifdef DEBUG
+#if !defined(QT_NO_DEBUG)
 	qInstallMsgHandler(redirectedMessageOutput);
 #endif
 
