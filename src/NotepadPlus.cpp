@@ -27,7 +27,6 @@ const char* NotepadPlus::default_theme = "bright";
 NotepadPlus::NotepadPlus(bb::cascades::Application *app) : QObject(app)
 {
 	INIT_SETTING("loadCache", 1);
-	INIT_SETTING("fontSize", FontSize::Default);
 
 	loadRoot("main.qml");
 

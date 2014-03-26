@@ -1,4 +1,3 @@
-import bb 1.0
 import bb.cascades 1.0
 import bb.cascades.pickers 1.0
 import bb.system 1.0
@@ -8,12 +7,6 @@ NavigationPane
     id: navigationPane
     property alias lastSavedFile: filePicker.lastPath
     property alias body: textArea.text
-    
-    attachedObjects: [
-        ComponentDefinition {
-            id: definition
-        }
-    ]
     
     onPopTransitionEnded: {
         page.destroy();
@@ -209,52 +202,8 @@ NavigationPane
             }
         ]
 
-        TextArea {
-            id: textArea
-            horizontalAlignment: HorizontalAlignment.Fill
-            verticalAlignment: VerticalAlignment.Fill
-            backgroundVisible: false
-            hintText: qsTr("Start typing here...") + Retranslate.onLanguageChanged
-
-            function onSettingChanged(key)
-            {
-                if (key == "fontSize")
-                {
-                    var sizeFont = persist.getValueFor("fontSize");
-                    
-                    if (sizeFont != undefined)
-                    {
-                        if (typeof sizeFont == 'string') {
-                            textStyle.fontSize = parseInt(sizeFont);
-                        } else {
-                            textStyle.fontSize = sizeFont;
-                        }
-                    }
-                }
-            }
-
-            onCreationCompleted: {
-                Application.sceneChanged.connect(requestFocus);
-                persist.settingChanged.connect(onSettingChanged);
-                onSettingChanged("fontSize");
-            }
-
-            onFocusedChanged: {
-                if (focused) {
-                    rootPage.actionBarVisibility = ChromeVisibility.Hidden;
-                }
-            }
-            
-            attachedObjects: [
-                UIToolkitSupport {
-                    id: uis
-
-                    onSwipedDown: {
-                        textArea.loseFocus();
-                        rootPage.actionBarVisibility = ChromeVisibility.Visible;
-                    }
-                }
-            ]
-        }
+		DocumentBody {
+		    id: textArea
+      	}
     }
 }
