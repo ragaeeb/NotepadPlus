@@ -48,7 +48,7 @@ NavigationPane
                             var lastDir = lastFile.substring(0, lastFile.lastIndexOf("/") + 1);
                             persist.saveValueFor("input", lastDir);
                             
-                            app.open(selectedFiles[0]);
+                            app.open(selectedFiles);
                         }
                     }
                 ]

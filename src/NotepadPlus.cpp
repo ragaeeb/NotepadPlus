@@ -97,23 +97,26 @@ void NotepadPlus::invoked(bb::system::InvokeRequest const& request)
 	QString uri = request.uri().toLocalFile();
 	LOGGER("========= INVOKED WITH" << uri );
 
-	open(uri);
+	open(QStringList() << uri);
 }
 
 
-void NotepadPlus::open(QString const& uri)
+void NotepadPlus::open(QStringList const& uris)
 {
 	m_progress.setState(SystemUiProgressState::Active);
 	m_progress.setStatusMessage( tr("0% complete...") );
 	m_progress.setProgress(0);
 	m_progress.show();
 
-	FileReaderThread* frt = new FileReaderThread();
-	frt->setPath(uri);
-	connect( frt, SIGNAL( fileLoaded(QString const&, QVariant const&) ), this, SLOT( onFileLoaded(QString const&, QVariant const&) ) );
-	connect( frt, SIGNAL( progress(qint64, qint64) ), this, SLOT( onProgress(qint64, qint64) ) );
+	for (int i = uris.size()-1; i >= 0; i--)
+	{
+	    FileReaderThread* frt = new FileReaderThread();
+	    frt->setPath( uris[i] );
+	    connect( frt, SIGNAL( fileLoaded(QString const&, QVariant const&) ), this, SLOT( onFileLoaded(QString const&, QVariant const&) ) );
+	    connect( frt, SIGNAL( progress(qint64, qint64) ), this, SLOT( onProgress(qint64, qint64) ) );
 
-	IOUtils::startThread(frt);
+	    IOUtils::startThread(frt);
+	}
 }
 
 
@@ -144,7 +147,10 @@ void NotepadPlus::init()
 {
 	INIT_SETTING("theme", default_theme);
 	INIT_SETTING("input", "/accounts/1000/removable/sdcard/documents");
+
 	m_progress.setState(SystemUiProgressState::Inactive);
+	m_progress.setAutoUpdateEnabled(true);
+
     bool ok = InvocationUtils::validateSharedFolderAccess( tr("Warning: It seems like the app does not have access to your Shared Folder. This permission is needed for the app to access the file system so that it can allow you to save your files and open them. If you leave this permission off, some features may not work properly.") );
 
     if (ok) {

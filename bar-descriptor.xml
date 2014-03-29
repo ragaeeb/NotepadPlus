@@ -96,6 +96,11 @@
 	    <property var="exts" value="htm,html,nfo,rtf,xhtml,xml,wri,txt"/>
 	    <property var="uris" value="file://"/>
 	  </filter>
+	 <filter>
+		<action>bb.action.SHARE</action>
+		<mime-type>filelist/mixed</mime-type>
+		<property var="uris" value="list://"/>
+	 </filter>
    </invoke-target>
 
     <asset path="icon.png">icon.png</asset>

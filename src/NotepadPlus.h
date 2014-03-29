@@ -48,7 +48,7 @@ public:
 	static const char* default_theme;
     static void create(Application* app);
     virtual ~NotepadPlus() {}
-    Q_INVOKABLE void open(QString const& fileName);
+    Q_INVOKABLE void open(QStringList const& fileNames);
     Q_INVOKABLE bool save(QString const& fileName, QString contents);
     Q_INVOKABLE void share(QString const& fileName, QString const& targetId);
     Q_INVOKABLE void shareLocal(QString const& text, QString const& targetId);

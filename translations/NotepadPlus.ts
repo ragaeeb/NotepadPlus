@@ -265,7 +265,7 @@ Note that this app requires the &apos;Shared Files&apos; permission to be able t
 <context>
     <name>SlideoutPanel</name>
     <message>
-        <location filename="../assets/SlideoutPanel.qml" line="82"/>
+        <location filename="../assets/SlideoutPanel.qml" line="81"/>
         <source>Share</source>
         <translation type="unfinished"></translation>
     </message>
@@ -321,22 +321,22 @@ Note that this app requires the &apos;Shared Files&apos; permission to be able t
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/NotepadPlus.cpp" line="124"/>
+        <location filename="../src/NotepadPlus.cpp" line="127"/>
         <source>%1% complete...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/NotepadPlus.cpp" line="148"/>
+        <location filename="../src/NotepadPlus.cpp" line="154"/>
         <source>Warning: It seems like the app does not have access to your Shared Folder. This permission is needed for the app to access the file system so that it can allow you to save your files and open them. If you leave this permission off, some features may not work properly.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/NotepadPlus.cpp" line="152"/>
+        <location filename="../src/NotepadPlus.cpp" line="158"/>
         <source>To show the menu-bar at the bottom, either tap or swipe-down from the top-bezel.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/NotepadPlus.cpp" line="152"/>
+        <location filename="../src/NotepadPlus.cpp" line="158"/>
         <source>OK</source>
         <translation type="unfinished"></translation>
     </message>
