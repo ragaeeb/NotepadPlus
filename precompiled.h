@@ -8,3 +8,5 @@
 #include <bb/UIToolkitSupport>
 
 #include <QtConcurrentRun>
+
+#include <bb/system/InvokeManager>

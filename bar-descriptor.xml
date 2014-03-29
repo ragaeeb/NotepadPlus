@@ -90,11 +90,11 @@
    <invoke-target id="com.canadainc.NotePadPlus.open">
       <invoke-target-type>application</invoke-target-type>
 	  <filter>
-	    <action>bb.action.VIEW</action>
 	    <action>bb.action.OPEN</action>
+	    <action>bb.action.VIEW</action>
 	    <mime-type>*</mime-type>
-	    <property var="uris" value="file://"/>
 	    <property var="exts" value="htm,html,nfo,rtf,xhtml,xml,wri,txt"/>
+	    <property var="uris" value="file://"/>
 	  </filter>
    </invoke-target>
 

@@ -156,6 +156,34 @@ void NotepadPlus::init()
 }
 
 
+void NotepadPlus::share(QString const& fileName, QString const& targetId)
+{
+    LOGGER(fileName << targetId);
+
+    InvokeRequest request;
+    request.setUri( QUrl::fromLocalFile(fileName) );
+    request.setTarget(targetId);
+    request.setAction("bb.action.SHARE");
+
+    InvokeManager().invoke(request);
+}
+
+
+void NotepadPlus::shareLocal(QString const& text, QString const& targetId)
+{
+    LOGGER(text << targetId);
+
+    QString fileName = QString("%1/untitled.txt").arg( QDir::tempPath() );
+
+    bool written = IOUtils::writeTextFile(fileName, text, true);
+    LOGGER(written);
+
+    if (written) {
+        share(fileName, targetId);
+    }
+}
+
+
 bool NotepadPlus::save(QString const& fileName, QString contents)
 {
 	LOGGER("Save" << fileName);

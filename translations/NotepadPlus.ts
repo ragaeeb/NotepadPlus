@@ -12,52 +12,52 @@
 <context>
     <name>DocumentPage</name>
     <message>
-        <location filename="../assets/DocumentPage.qml" line="29"/>
+        <location filename="../assets/DocumentPage.qml" line="24"/>
         <source>Open</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../assets/DocumentPage.qml" line="40"/>
+        <location filename="../assets/DocumentPage.qml" line="35"/>
         <source>O</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../assets/DocumentPage.qml" line="48"/>
+        <location filename="../assets/DocumentPage.qml" line="43"/>
         <source>Choose File</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../assets/DocumentPage.qml" line="64"/>
+        <location filename="../assets/DocumentPage.qml" line="59"/>
         <source>Save</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../assets/DocumentPage.qml" line="88"/>
+        <location filename="../assets/DocumentPage.qml" line="83"/>
         <source>Save As</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../assets/DocumentPage.qml" line="94"/>
+        <location filename="../assets/DocumentPage.qml" line="89"/>
         <source>A</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../assets/DocumentPage.qml" line="113"/>
+        <location filename="../assets/DocumentPage.qml" line="108"/>
         <source>Specify File Name</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../assets/DocumentPage.qml" line="126"/>
+        <location filename="../assets/DocumentPage.qml" line="121"/>
         <source>Untitled</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../assets/DocumentPage.qml" line="135"/>
+        <location filename="../assets/DocumentPage.qml" line="130"/>
         <source>Successfully written file: %1</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../assets/DocumentPage.qml" line="137"/>
+        <location filename="../assets/DocumentPage.qml" line="132"/>
         <source>Could not write file: %1
 
 Did you make sure you gave the app the Shared Files permission? This permission is needed for the app to access your shared folder to write the file.
@@ -66,47 +66,57 @@ If you disabled it by mistake, go to BB10 Settings -&gt; Security &amp; Privacy 
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../assets/DocumentPage.qml" line="137"/>
+        <location filename="../assets/DocumentPage.qml" line="132"/>
         <source>OK</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../assets/DocumentPage.qml" line="146"/>
+        <location filename="../assets/DocumentPage.qml" line="141"/>
         <source>Copy</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../assets/DocumentPage.qml" line="161"/>
-        <source>Top</source>
+        <location filename="../assets/DocumentPage.qml" line="158"/>
+        <source>Share As Text</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../assets/DocumentPage.qml" line="171"/>
-        <source>Bottom</source>
+        <location filename="../assets/DocumentPage.qml" line="173"/>
+        <source>Share As File</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../assets/DocumentPage.qml" line="182"/>
-        <source>Clear</source>
+        <source>Top</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../assets/DocumentPage.qml" line="192"/>
+        <source>Bottom</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../assets/DocumentPage.qml" line="204"/>
+        <source>Clear</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../assets/DocumentPage.qml" line="214"/>
         <source>Confirm</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../assets/DocumentPage.qml" line="193"/>
+        <location filename="../assets/DocumentPage.qml" line="215"/>
         <source>Are you sure you want to clear the text?</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../assets/DocumentPage.qml" line="194"/>
+        <location filename="../assets/DocumentPage.qml" line="216"/>
         <source>Yes</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../assets/DocumentPage.qml" line="195"/>
+        <location filename="../assets/DocumentPage.qml" line="217"/>
         <source>No</source>
         <translation type="unfinished"></translation>
     </message>
@@ -249,6 +259,14 @@ Note that this app requires the &apos;Shared Files&apos; permission to be able t
     <message>
         <location filename="../assets/SettingsPage.qml" line="99"/>
         <source>Largest font size.</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>SlideoutPanel</name>
+    <message>
+        <location filename="../assets/SlideoutPanel.qml" line="82"/>
+        <source>Share</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

@@ -10,6 +10,7 @@ TextArea
     hintText: qsTr("Start typing here...") + Retranslate.onLanguageChanged
     textStyle.fontSizeValue: persist.contains("fontSizeValue") ? persist.getValueFor("fontSizeValue") : 8
     textStyle.fontSize: FontSize.PointValue
+    content.flags: focused ? TextContentFlag.ActiveTextOff | TextContentFlag.EmoticonsOff : TextContentFlag.ActiveText | TextContentFlag.Emoticons
     
     gestureHandlers: [
         PinchHandler {

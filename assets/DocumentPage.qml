@@ -16,9 +16,10 @@ NavigationPane
     {
         id: rootPage
         actionBarVisibility: ChromeVisibility.Hidden
-        
+
         actions: [
-            ActionItem {
+            ActionItem
+            {
                 id: openAction
                 title: qsTr("Open") + Retranslate.onLanguageChanged
                 imageSource: "images/menu/ic_open.png"
@@ -151,6 +152,32 @@ NavigationPane
                 }
             },
 
+            InvokeActionItem
+            {
+                id: shareTextAction
+                title: qsTr("Share As Text") + Retranslate.onLanguageChanged
+                
+                query {
+                    mimeType: "text/plain"
+                    invokeActionId: "bb.action.SHARE"
+                }
+                
+                onTriggered: {
+                    data = persist.convertToUtf8(textArea.text);
+                }
+            },
+            
+            ActionItem
+            {
+                id: shareFileAction
+                title: qsTr("Share As File") + Retranslate.onLanguageChanged
+                imageSource: "images/menu/ic_share_file.png"
+                
+                onTriggered: {
+                    panelDelegate.slideInPanel();
+                }
+            },
+
             ActionItem {
                 title: qsTr("Top") + Retranslate.onLanguageChanged
                 imageSource: "images/menu/ic_up.png"
@@ -171,7 +198,8 @@ NavigationPane
                 }
             },
             
-            DeleteActionItem {
+            DeleteActionItem
+            {
                 id: clearAction
                 title: qsTr("Clear") + Retranslate.onLanguageChanged
                 imageSource: "images/menu/ic_delete.png"
@@ -202,8 +230,59 @@ NavigationPane
             }
         ]
 
-		DocumentBody {
-		    id: textArea
-      	}
+        Container
+        {
+            horizontalAlignment: HorizontalAlignment.Fill
+            verticalAlignment: VerticalAlignment.Fill
+            layout: DockLayout {}
+            
+            DocumentBody
+            {
+                id: textArea
+                horizontalAlignment: HorizontalAlignment.Fill
+                verticalAlignment: VerticalAlignment.Fill
+                
+                onTextChanging: {
+                    copyAllAction.enabled = shareTextAction.enabled = text.length > 0;
+                }
+            }
+            
+            ControlDelegate
+            {
+                id: panelDelegate
+                delegateActive: false
+                
+                function slideInPanel()
+                {
+                    if (!delegateActive) {
+                        delegateActive = true;
+                    } else {
+                        control.slideIn();
+                    }
+                }
+                
+                sourceComponent: ComponentDefinition
+                {
+                    SlideoutPanel
+                    {
+                        id: panel
+                        horizontalAlignment: HorizontalAlignment.Fill
+                        verticalAlignment: VerticalAlignment.Top
+                        
+                        onClicked: {
+                            if (lastSavedFile.length > 0) {
+                                app.share(lastSavedFile, targetId);
+                            } else {
+                                app.shareLocal(textArea.text, targetId);
+                            }
+                        }
+                        
+                        onCreationCompleted: {
+                            slideIn();
+                        }
+                    }
+                }
+            }
+        }
     }
 }
