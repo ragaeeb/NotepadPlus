@@ -28,8 +28,10 @@ TabbedPane
     {
         projectName: "notepad-plus"
         allowDonations: true
-        promoteChannel: true
-        bbWorldID: "26594872"
+        help.imageSource: "images/menu/ic_help.png"
+        help.title: qsTr("Help") + Retranslate.onLanguageChanged
+        settings.imageSource: "images/menu/ic_settings.png"
+        settings.title: qsTr("Settings") + Retranslate.onLanguageChanged
     }
     
     Tab {

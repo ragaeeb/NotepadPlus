@@ -273,32 +273,42 @@ Note that this app requires the &apos;Shared Files&apos; permission to be able t
 <context>
     <name>main</name>
     <message>
-        <location filename="../assets/main.qml" line="55"/>
+        <location filename="../assets/main.qml" line="57"/>
         <source>Doc %1</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../assets/main.qml" line="56"/>
+        <location filename="../assets/main.qml" line="58"/>
         <source>Untitled</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../assets/main.qml" line="37"/>
+        <location filename="../assets/main.qml" line="39"/>
         <source>New</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../assets/main.qml" line="38"/>
+        <location filename="../assets/main.qml" line="32"/>
+        <source>Help</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../assets/main.qml" line="34"/>
+        <source>Settings</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../assets/main.qml" line="40"/>
         <source>New Document</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../assets/main.qml" line="68"/>
+        <location filename="../assets/main.qml" line="70"/>
         <source>Default</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../assets/main.qml" line="69"/>
+        <location filename="../assets/main.qml" line="71"/>
         <source>Default Document</source>
         <translation type="unfinished"></translation>
     </message>
@@ -306,38 +316,23 @@ Note that this app requires the &apos;Shared Files&apos; permission to be able t
 <context>
     <name>notepad::NotepadPlus</name>
     <message>
-        <location filename="../src/NotepadPlus.cpp" line="51"/>
+        <location filename="../src/NotepadPlus.cpp" line="49"/>
         <source>Loading...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/NotepadPlus.cpp" line="52"/>
+        <location filename="../src/NotepadPlus.cpp" line="50"/>
         <source>Loading cache...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/NotepadPlus.cpp" line="107"/>
+        <location filename="../src/NotepadPlus.cpp" line="105"/>
         <source>0% complete...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/NotepadPlus.cpp" line="127"/>
+        <location filename="../src/NotepadPlus.cpp" line="125"/>
         <source>%1% complete...</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../src/NotepadPlus.cpp" line="154"/>
-        <source>Warning: It seems like the app does not have access to your Shared Folder. This permission is needed for the app to access the file system so that it can allow you to save your files and open them. If you leave this permission off, some features may not work properly.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../src/NotepadPlus.cpp" line="158"/>
-        <source>To show the menu-bar at the bottom, either tap or swipe-down from the top-bezel.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../src/NotepadPlus.cpp" line="158"/>
-        <source>OK</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

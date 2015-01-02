@@ -22,8 +22,6 @@ using namespace bb::cascades;
 using namespace bb::system;
 using namespace canadainc;
 
-const char* NotepadPlus::default_theme = "bright";
-
 NotepadPlus::NotepadPlus(bb::cascades::Application *app) : QObject(app)
 {
 	INIT_SETTING("loadCache", 1);
@@ -150,7 +148,7 @@ void NotepadPlus::init()
 
 	m_progress.setState(SystemUiProgressState::Inactive);
 	m_progress.setAutoUpdateEnabled(true);
-
+/*
     bool ok = InvocationUtils::validateSharedFolderAccess( tr("Warning: It seems like the app does not have access to your Shared Folder. This permission is needed for the app to access the file system so that it can allow you to save your files and open them. If you leave this permission off, some features may not work properly.") );
 
     if (ok) {
@@ -158,7 +156,7 @@ void NotepadPlus::init()
         	m_persistance.showToast( tr("To show the menu-bar at the bottom, either tap or swipe-down from the top-bezel."), tr("OK") );
         	m_persistance.saveValueFor("swipeTutorial", 1);
     	}
-    }
+    } */
 }
 
 

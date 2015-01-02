@@ -9,6 +9,8 @@
 
 #include "Persistance.h"
 
+#define default_theme "bright"
+
 namespace bb {
 	namespace cascades {
 		class Application;
@@ -45,7 +47,6 @@ signals:
 	void initialize();
 
 public:
-	static const char* default_theme;
     static void create(Application* app);
     virtual ~NotepadPlus() {}
     Q_INVOKABLE void open(QStringList const& fileNames);
